@@ -1,0 +1,1553 @@
+<!DOCTYPE html>
+<html>
+<head hexo-theme='https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.3'>
+  <meta charset="utf-8">
+  <!-- SEO相关 -->
+  
+    
+  
+  <!-- 渲染优化 -->
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+
+  <!-- 页面元数据 -->
+  
+  <title>LCT的进阶应用 - AK-dream</title>
+  
+    <meta name="keywords" content="Link-cut Tree">
+  
+
+  
+
+  <!-- feed -->
+  
+    <link rel="alternate" href="/atom.xml" title="AK-dream">
+  
+
+  <!-- import meta -->
+  
+
+  <!-- link -->
+  <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14/css/all.min.css">
+
+  
+  
+
+  
+
+  
+    <link rel="shortcut icon" type='image/x-icon' href="/img/siteicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.css">
+  
+
+  
+
+  <!-- import link -->
+  
+
+  
+  
+    
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  <!-- 脚本懒加载函数 -->
+  <script>
+  function loadScript(src, cb) {
+    var HEAD = document.getElementsByTagName('head')[0] || document.documentElement;
+    var script = document.createElement('script');
+    script.setAttribute('type','text/javascript');
+    if (cb) script.onload = cb;
+    script.setAttribute('src', src);
+    HEAD.appendChild(script);
+  }
+  //https://github.com/filamentgroup/loadCSS
+  !function(c){"use strict";var e=function(e,t,n,r){var o,i=c.document,a=i.createElement("link");if(t)o=t;else{var d=(i.body||i.getElementsByTagName("head")[0]).childNodes;o=d[d.length-1]}var f=i.styleSheets;if(r)for(var l in r)r.hasOwnProperty(l)&&a.setAttribute(l,r[l]);a.rel="stylesheet",a.href=e,a.media="only x",function e(t){if(i.body)return t();setTimeout(function(){e(t)})}(function(){o.parentNode.insertBefore(a,t?o:o.nextSibling)});var s=function(e){for(var t=a.href,n=f.length;n--;)if(f[n].href===t)return e();setTimeout(function(){s(e)})};function u(){a.addEventListener&&a.removeEventListener("load",u),a.media=n||"all"}return a.addEventListener&&a.addEventListener("load",u),(a.onloadcssdefined=s)(u),a};"undefined"!=typeof exports?exports.loadCSS=e:c.loadCSS=e}("undefined"!=typeof global?global:this);
+  </script>
+  <script id="loadcss"></script>
+</head>
+
+<body>
+  <header class="l_header auto shadow blur " style='opacity: 0' >
+  <div class='container'>
+  <div class='wrapper'>
+    <div class='nav-sub'>
+      <p class="title"></p>
+      <ul class='switcher nav-list-h m-phone' id="pjax-header-nav-list">
+        <li><a class="s-comment fas fa-comments fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+          <li><a class="s-toc fas fa-list fa-fw" target="_self" href='javascript:void(0)'></a></li>
+        
+      </ul>
+    </div>
+		<div class="nav-main">
+      
+        
+        <a class="title flat-box" target="_self" href='/'>
+          
+          
+            <i class='https://i.loli.net/2020/03/11/2O3ybqLsrtNnHav.png'></i>
+          
+          
+            AK-dream
+          
+        </a>
+      
+
+			<div class='menu navigation'>
+				<ul class='nav-list-h m-pc'>
+          
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+          
+            
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+          
+				</ul>
+			</div>
+
+      <div class="m_search">
+        <form name="searchform" class="form u-search-form">
+          <i class="icon fas fa-search fa-fw"></i>
+          <input type="text" class="input u-search-input" placeholder="Search..." />
+        </form>
+      </div>
+
+			<ul class='switcher nav-list-h m-phone'>
+				
+					<li><a class="s-search fas fa-search fa-fw" target="_self" href='javascript:void(0)'></a></li>
+				
+				<li>
+          <a class="s-menu fas fa-bars fa-fw" target="_self" href='javascript:void(0)'></a>
+          <ul class="menu-phone list-v navigation white-box">
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/
+                  
+                  
+                  
+                    id="home"
+                  >
+                  <i class='fas fa-rss fa-fw'></i>博客
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/tags/
+                  
+                  
+                  
+                    id="tags"
+                  >
+                  <i class='fas fa-tags fa-fw'></i>标签
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/archives/
+                  
+                  
+                  
+                    id="archives"
+                  >
+                  <i class='fas fa-archive fa-fw'></i>归档
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/friends/
+                  
+                  
+                  
+                    id="friends"
+                  >
+                  <i class='fas fa-link fa-fw'></i>友链
+                </a>
+                
+              </li>
+            
+          
+            
+              
+            
+              <li>
+                <a class="menuitem flat-box faa-parent animated-hover" href=/about/
+                  
+                  
+                  
+                    id="about"
+                  >
+                  <i class='fas fa-info-circle fa-fw'></i>关于
+                </a>
+                
+              </li>
+            
+          
+            
+          </ul>
+        </li>
+			</ul>
+		</div>
+	</div>
+  </div>
+</header>
+
+  <div class="l_body">
+    <div class="l_cover">
+  
+    
+    
+        <div class='cover-wrapper post dock' style="display: none;">
+          
+            <div class='cover-backstretch'></div>
+          
+          <div class='cover-body'>
+  <div class='top'>
+    
+    
+      <p class="title">AK-dream</p>
+    
+    
+  </div>
+  <div class='bottom'>
+    <div class='menu navigation'>
+      <div class='list-h'>
+        
+          
+            <a href="/"
+              
+              
+              id="home">
+              <i class='fas fa-rss fa-fw'></i><p>博客</p>
+            </a>
+          
+            <a href="/tags/"
+              
+              
+              id="tags">
+              <i class='fas fa-tags fa-fw'></i><p>标签</p>
+            </a>
+          
+            <a href="/archives/"
+              
+              
+              id="archives">
+              <i class='fas fa-archive fa-fw'></i><p>归档</p>
+            </a>
+          
+            <a href="/friends/"
+              
+              
+              id="friends">
+              <i class='fas fa-link fa-fw'></i><p>友链</p>
+            </a>
+          
+            <a href="/about/"
+              
+              
+              id="about">
+              <i class='fas fa-info-circle fa-fw'></i><p>关于</p>
+            </a>
+          
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+          <div class="scroll-down" style="display: none;"><i class="fa fa-chevron-down scroll-down-effects"></i></div>
+        </div>
+    
+  
+  </div>
+  
+    <div class='safearea'>
+      <div class='body-wrapper' id="pjax-container">
+        
+          <!--此文件用来存放一些不方便取值的变量--> 
+<!--思路大概是将值藏到重加载的区域内--> 
+ 
+ 
+ 
+<div id="pjax-data" style="display: none"> 
+  <div id="pjax-ispage">true</div> 
+  <div id="pjax-pageTitle">LCT的进阶应用</div> 
+  <div id="pjax-enable-cover">true</div> 
+  <div id="pjax-comment-path"></div> 
+  <div id="pjax-comment-placeholder"></div> 
+</div> 
+ 
+ 
+<script> 
+  // 处理封面 此时 jquery 还没加载 
+  if ("none" == "none") { // 移除封面 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
+  } else { 
+    if ("none" == "half") { // 半屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
+    } else if ("none" == "full") { // 全屏 
+      document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
+      document.getElementsByClassName('scroll-down')[0].style.display = ""; 
+    } 
+    document.getElementsByClassName('cover-wrapper')[0].style.display = ""; 
+    document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.remove("show"); 
+  } 
+</script> 
+ 
+
+        
+        
+
+<div class='l_main'>
+  <article class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  
+
+
+  
+  <div class="article-meta" id="top">
+    
+    
+    
+      <h1 class="title">
+        LCT的进阶应用
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author'>
+  <a class='author' href="/" rel="nofollow">
+    <img no-lazy src="https://i.loli.net/2020/03/11/2O3ybqLsrtNnHav.png">
+    <p>AK-dream</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+
+          
+        
+          
+            <div class="new-meta-item date">
+  <a class='notlink'>
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2020年8月8日</p>
+  </a>
+</div>
+
+          
+        
+          
+            
+  <div class="new-meta-item browse leancloud">
+    <a class='notlink'>
+      
+      <div id="lc-pv" data-title="LCT的进阶应用" data-path="/post/cee3a0d7.html/">
+        <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
+        <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+        次浏览
+      </div>
+    </a>
+  </div>
+
+
+          
+        
+      </div>
+    
+  </div>
+
+
+  
+  
+  <p>关于LCT的进阶应用</p>
+<p>不光是写算法思路，<del>因为已经有很多人写过了</del>，更重要的是代码写法中的细节，不然LCT各种奇怪应用的细节够你一题调一个小时</p>
+<p><del>本篇文章将助你考试一遍过样例！</del></p>
+<p>当然，还有一些基础应用比如维护路径信息或者维护联通性，但是代码都相对比较模板，所以也没什么好写</p>
+<h2 id="一-LCT维护边双连通分量"><a href="#一-LCT维护边双连通分量" class="headerlink" title="一. LCT维护边双连通分量"></a>一. LCT维护边双连通分量</h2><p>有些题目中会动态加边并有形如“x到y之间有多少必经边” “某个边双内有多少点”的询问，这时候需要用LCT来维护边双联通分量</p>
+<h3 id="思路讲解"><a href="#思路讲解" class="headerlink" title="思路讲解"></a>思路讲解</h3><p>注意到，如果把所有边双缩成点，那么一定会构成一个森林</p>
+<p>此时如果新增了一条边$x,y$，一种情况是$x,y$不在同一棵树里，此时直接<code>link(x,y)</code>即可</p>
+<p>一种情况是$x,y$在同一棵树中，但不在同一个边双中，那么就会形成一个新的边双</p>
+<p>找出$x,y$所在的边双所缩成的点$fx,fy$，然后把$fx$到$fy$这条路径上的所有点缩成一个新点，并让这个新点来记录新的边双中的点的权值之和</p>
+<p>实现时可以用并查集来记录每个点在哪个边双中</p>
+<p>注意，维护边双时不支持删边操作，因为无法快速确定删除某个边双内部的一条边后会分裂成几个新的边双</p>
+<h3 id="代码剖析"><a href="#代码剖析" class="headerlink" title="代码剖析"></a>代码剖析</h3><p>相信大家都已经记住原版LCT是怎么写的了 </p>
+<p>这里来看一下维护边双的LCT和原版有哪些区别</p>
+<h4 id="1-并查集维护每个点在哪个边双中"><a href="#1-并查集维护每个点在哪个边双中" class="headerlink" title="1. 并查集维护每个点在哪个边双中"></a>1. 并查集维护每个点在哪个边双中</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Fa[N];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123; <span class="keyword">return</span> Fa[x] == x ? x : Fa[x] = find(Fa[x]); &#125;</span><br><span class="line"><span class="comment">//记得初始化并查集</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-access操作写法发生变化"><a href="#2-access操作写法发生变化" class="headerlink" title="2. access操作写法发生变化"></a>2. access操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">access</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; x; i = x, x = find(fa[x])) &#123; <span class="comment">//x每次跳到find(fa[x])而不是fa[x]</span></span><br><span class="line">		splay(x); ch[x][<span class="number">1</span>] = i; </span><br><span class="line">		<span class="keyword">if</span> (i) fa[i] = x; <span class="comment">//一定要把新的重儿子i的父亲设为x</span></span><br><span class="line">		pushup(x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-新增操作merge：将x到y的路径缩为一个点"><a href="#3-新增操作merge：将x到y的路径缩为一个点" class="headerlink" title="3. 新增操作merge：将x到y的路径缩为一个点"></a>3. 新增操作merge：将x到y的路径缩为一个点</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt; q;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">merge</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	split(x, y); <span class="comment">//将x到y的路径提取出来</span></span><br><span class="line">	q.push(y);</span><br><span class="line">	<span class="keyword">while</span> (!q.empty()) &#123; <span class="comment">//用bfs在二叉树上遍历x到y路径上的所有点</span></span><br><span class="line">		<span class="keyword">int</span> u = q.front(); q.pop();</span><br><span class="line">		Fa[find(u)] = y; <span class="comment">//维护并查集</span></span><br><span class="line">		<span class="keyword">if</span> (ch[u][<span class="number">0</span>]) q.push(ch[u][<span class="number">0</span>]);</span><br><span class="line">		<span class="keyword">if</span> (ch[u][<span class="number">1</span>]) q.push(ch[u][<span class="number">1</span>]);</span><br><span class="line">		ch[u][<span class="number">0</span>] = ch[u][<span class="number">1</span>] = <span class="number">0</span>;  </span><br><span class="line">	&#125;</span><br><span class="line">	val[y] = sum[y]; <span class="comment">//y成为这个边双的代表元</span></span><br><span class="line">	<span class="comment">//如果还有其它信息也是要全部让y来存</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-连边-x-y-时的分类讨论"><a href="#4-连边-x-y-时的分类讨论" class="headerlink" title="4. 连边$x,y$时的分类讨论"></a>4. 连边$x,y$时的分类讨论</h4><p>伪代码如下 维护两点联通性可以再开一个并查集，也可以用<code>findroot</code></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LINK</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fx = find(x), fy = find(y);</span><br><span class="line">	<span class="keyword">if</span> (fx == fy) <span class="keyword">return</span>; <span class="comment">//x,y已在同一边双中</span></span><br><span class="line">	<span class="keyword">if</span> (x,y不在同一棵树中) &#123;</span><br><span class="line">		link(x,y); <span class="comment">//如果用另一个并查集维护联通性记得更新并查集</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		merge(fx,fy); <span class="comment">//是fx,fy 不是x,y!!!</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！"><a href="#5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！" class="headerlink" title="5. 进行任何修改/询问操作时都一定是对$fx=find(x)$进行，而不是$x$本身！"></a>5. 进行任何修改/询问操作时都一定是对$fx=find(x)$进行，而不是$x$本身！</h4><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><a href="https://darkbzoj.tk/problem/2959" target="_blank" rel="noopener">[bzoj2959]长跑</a><br><a href="https://www.luogu.com.cn/problem/P2542" target="_blank" rel="noopener">[AHOI2005]航线规划</a></p>
+<h2 id="二-LCT维护子树信息"><a href="#二-LCT维护子树信息" class="headerlink" title="二. LCT维护子树信息"></a>二. LCT维护子树信息</h2><p>LCT一般用来维护路径信息而不是子树信息，因为LCT维护子树信息非常不方便。。。</p>
+<p>但是有些毒瘤题可能在询问子树信息的同时还有加边删边操作，或者可能有换根操作，就只能被迫使用LCT了</p>
+<h3 id="思路讲解-1"><a href="#思路讲解-1" class="headerlink" title="思路讲解"></a>思路讲解</h3><p>假设现在需要用LCT维护原树中一个子树的$siz$</p>
+<p>为了方便查询，一般会把原树中一条重链的顶端$x$的子树信息存储在 ($x$在LCT中所在的二叉树的根) 的位置<br><img src="http://akdream.tk/img/99_2.png" class="lazyload" data-srcset="http://akdream.tk/img/99_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>如上图，原树中的$siz[1]$实际上存在LCT中的$siz[3]$里</p>
+<p>但是一个点子树的$siz$不仅包含自己所在的那条重链的$siz$啊 如何维护轻子树的大小？</p>
+<p>我们记$lsiz[x]$表示LCT中$x$的所有轻子树的$siz$之和，这样$siz[x]$就等于$siz[lson]+siz[rson]+lsiz[x]+1$</p>
+<p>如果我们希望查询$x$点的子树信息，只需要<code>access(x)</code>，然后此时$x$就会位于一条重链的底端，那么$siz[lson]$和$siz[rson]$都为$0$，$siz[x]=lsiz[x]+1$，而此时LCT中$x$的轻子树一定一一对应着原树中$x$的子树，所以此时的$siz[x]$就是$x$在原树中的$siz$</p>
+<p>如果需要查询以$x$为根时整棵子树的信息，只需<code>makeroot(x)</code>，然后直接查询</p>
+<p>接下来的问题就在于如何维护这个$lsiz$了 来看一下代码</p>
+<h3 id="代码剖析-1"><a href="#代码剖析-1" class="headerlink" title="代码剖析"></a>代码剖析</h3><h4 id="1-pushup操作写法发生变化"><a href="#1-pushup操作写法发生变化" class="headerlink" title="1. pushup操作写法发生变化"></a>1. pushup操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	sum[x] = sum[ch[x][<span class="number">0</span>]] + sum[ch[x][<span class="number">1</span>]] + lsum[x] + val[x]; <span class="comment">//lsum表示轻子树的权值和</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-access操作写法发生变化-1"><a href="#2-access操作写法发生变化-1" class="headerlink" title="2. access操作写法发生变化"></a>2. access操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">access</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; x; i = x, x = fa[x]) &#123;</span><br><span class="line">		splay(x);</span><br><span class="line">		lsum[x] += (siz[ch[x][<span class="number">1</span>]] - siz[i]); <span class="comment">//ch[x][1]变为轻儿子，而i不再是轻儿子</span></span><br><span class="line">		ch[x][<span class="number">1</span>] = i; pushup(x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-link操作写法发生变化"><a href="#3-link操作写法发生变化" class="headerlink" title="3. link操作写法发生变化"></a>3. link操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	makeroot(x); makeroot(y); <span class="comment">//x,y都要makeroot!</span></span><br><span class="line">	fa[x] = y;</span><br><span class="line">	lsum[y] += sum[x]; <span class="comment">//x成为y的轻儿子</span></span><br><span class="line">	pushup(y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-单点修改-x-时先-makeroot-x-！"><a href="#4-单点修改-x-时先-makeroot-x-！" class="headerlink" title="4. 单点修改$x$时先 makeroot(x)！"></a>4. 单点修改$x$时先 <code>makeroot(x)</code>！</h4><h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p><a href="https://www.luogu.com.cn/problem/P4219" target="_blank" rel="noopener">[BJOI2014]大融合</a><br><a href="https://www.luogu.com.cn/problem/P4299" target="_blank" rel="noopener">[bzoj3510]首都</a></p>
+<h2 id="3-LCT维护形态树-权值树"><a href="#3-LCT维护形态树-权值树" class="headerlink" title="3. LCT维护形态树+权值树"></a>3. LCT维护形态树+权值树</h2><p>这类题目一般是要求维护树上路径信息，但是经常会对路径上的点权做一些奇怪的操作</p>
+<p>如[BZOJ3159]决战：路径翻转操作<br> [GDSOI2017]中学生数据结构题：路径循环移位操作</p>
+<h3 id="思路讲解-2"><a href="#思路讲解-2" class="headerlink" title="思路讲解"></a>思路讲解</h3><p>众所周知，LCT上的Splay以原树中的节点深度为关键字，随便你怎么<code>rotate</code>，只要节点的相对次序不变，那么就只有辅助树的形态会发生改变，而对应的原树形态不变</p>
+<p>在<code>makeroot(x)</code>操作中，我们翻转了以$x$为根的Splay，节点的相对次序发生了改变，所以其实在原树中就体现为原树的根变成了$x$</p>
+<p>但是在这种题里，如果你还是为了维护权值胡乱操作辅助树Splay，那说不定什么时候你就不小心把哪个点变成原树的根了。。。</p>
+<p>所以我们要再建出一棵辅助树来维护权值，使得在这棵辅助树上进行操作一定不会影响原树形态，我们把这棵辅助树叫做权值树，而LCT那棵叫形态树</p>
+<p>这里我选择了非旋Treap来维护权值树</p>
+<p>现在需要解决的问题就是 我们希望形态树和权值树是时刻对应的</p>
+<p>比如说，现在LCT被分为这样几棵Splay：$[1,2],[3,5,6],[4,7]$，那么此时权值树一定也是被这样划分为3棵的</p>
+<p>还有一个东西也要对应，就是形态树的中序遍历序列要时刻与权值树的中序遍历序列相同，这样才能够保证形态树中某棵平衡树排名第$k$的点和权值树中对应平衡树的第$k$个点是同一个点，方便进行修改</p>
+<p>比如说此时形态树中3棵平衡树的中序遍历分别为$[1,2],[6,3,5],[7,4]$，那么权值树也要一样，绝不可能是$[1,2],[5,3,6],[4,7]$</p>
+<p>为了实现这个功能，我们需要在LCT更改轻边重边时同样维护权值树的连边</p>
+<p>同时为了方便查询，还需要动态维护每棵形态树中的平衡树对应着权值树中的哪一棵平衡树</p>
+<p>用$rt[x]$来维护这个信息，一定要保证形态树中每棵平衡树的树根的$rt[x]$是权值树对应的那棵平衡树的树根，这样才能正确修改和查询</p>
+<h3 id="代码剖析-2"><a href="#代码剖析-2" class="headerlink" title="代码剖析"></a>代码剖析</h3><h4 id="1-权值树该怎么写怎么写，写一个正常的平衡树就行"><a href="#1-权值树该怎么写怎么写，写一个正常的平衡树就行" class="headerlink" title="1. 权值树该怎么写怎么写，写一个正常的平衡树就行"></a>1. 权值树该怎么写怎么写，写一个正常的平衡树就行</h4><h4 id="2-splay操作写法发生变化"><a href="#2-splay操作写法发生变化" class="headerlink" title="2. splay操作写法发生变化"></a>2. splay操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">splay</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	q[top=<span class="number">1</span>] = x;</span><br><span class="line">	<span class="keyword">int</span> i; <span class="keyword">for</span> (i = x; !isroot(i); i = fa[i]) q[++top] = fa[i];</span><br><span class="line">	swap(rt[i], rt[x]); <span class="comment">//x将会变成平衡树的根，把原来根的rt值给x</span></span><br><span class="line">	<span class="keyword">while</span> (top) pushdown(q[top--]); </span><br><span class="line">	<span class="keyword">while</span> (!isroot(x)) &#123;</span><br><span class="line">		<span class="keyword">int</span> y = fa[x], z = fa[y];</span><br><span class="line">		<span class="keyword">if</span> (!isroot(y)) ((ch[z][<span class="number">1</span>] == y) ^ (ch[y][<span class="number">1</span>] == x)) ? rotate(x) : rotate(y);</span><br><span class="line">		rotate(x);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-划重点！access操作写法"><a href="#3-划重点！access操作写法" class="headerlink" title="3. 划重点！access操作写法"></a>3. 划重点！access操作写法</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">access</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; x; i = x, x = fa[x]) &#123;</span><br><span class="line">		splay(x);</span><br><span class="line">		<span class="keyword">if</span> (ch[x][<span class="number">1</span>]) &#123;</span><br><span class="line">			VAL::split(rt[x], siz[x] - siz[ch[x][<span class="number">1</span>]], rt[x], rt[ch[x][<span class="number">1</span>]]);</span><br><span class="line">			<span class="comment">//x的重儿子不再是ch[x][1]，把它的子树从x对应的平衡树中删去</span></span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (i) &#123;</span><br><span class="line">			rt[x] = VAL::merge(rt[x], rt[i]); </span><br><span class="line">			<span class="comment">//i成为x的重儿子，把它的子树加入x对应的平衡树</span></span><br><span class="line">			<span class="comment">//注意merge顺序</span></span><br><span class="line">		&#125;</span><br><span class="line">		ch[x][<span class="number">1</span>] = i; pushup(x); </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-makeroot操作写法发生变化"><a href="#3-makeroot操作写法发生变化" class="headerlink" title="3. makeroot操作写法发生变化"></a>3. makeroot操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">makeroot</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	access(x); splay(x); rev(x); </span><br><span class="line">	VAL::Rev(rt[x]); <span class="comment">//为了保证中序遍历相同，权值树也要翻转</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-对于任何修改-查询，先split-x-y-，然后在权值树的对应平衡树上修改-查询"><a href="#4-对于任何修改-查询，先split-x-y-，然后在权值树的对应平衡树上修改-查询" class="headerlink" title="4. 对于任何修改/查询，先split(x,y)，然后在权值树的对应平衡树上修改/查询"></a>4. 对于任何修改/查询，先split(x,y)，然后在权值树的对应平衡树上修改/查询</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, ll v)</span> </span>&#123; split(x, y); VAL::Add(rt[y], v); &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Rev</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); VAL::Rev(rt[y]); &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Qsum</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); <span class="keyword">return</span> VAL::sum[rt[y]]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Qmax</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); <span class="keyword">return</span> VAL::mx[rt[y]]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Qmin</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); <span class="keyword">return</span> VAL::mn[rt[y]]; &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3><p><a href="https://darkbzoj.tk/problem/3159" target="_blank" rel="noopener">[bzoj3159]决战</a></p>
+<h2 id="4-LCT维护边权信息"><a href="#4-LCT维护边权信息" class="headerlink" title="4. LCT维护边权信息"></a>4. LCT维护边权信息</h2><p>LCT怎么维护边权？LCT维护不了边权。</p>
+<p>但是可以把边拆成点，然后就变成维护点权了（</p>
+<p>多用于维护生成树</p>
+<h3 id="思路讲解-3"><a href="#思路讲解-3" class="headerlink" title="思路讲解"></a>思路讲解</h3><p>新科技：KrusLCT算法$O(m\log m)$求最小生成树！</p>
+<p>对于一条边$(u,v)$，新建一个点$w$，把$w$的点权设为边权，$u,v$的点权视题目设成正无穷，负无穷，$0$之类的，然后连边$(u,w)$，$(w,v)$</p>
+<p>这样有什么好处呢？如果我想要查询$x$到$y$路径上的最大边权，只需要在LCT上查询$x$到$y$的最大点权就好了</p>
+<p>所以可以口胡出一个最小生成树算法：</p>
+<p>按顺序考虑每一条边$u,v$：若$u,v$不连通，则在LCT中连上$u,v$</p>
+<p>否则找出LCT上$u,v$路径上的最大点权，若这个”点”权大于当前边$u,v$的边权，就把那条边断开，连上这条边</p>
+<p>当然这就是LCT维护边权的一个应用，其实理解起来非常简单</p>
+<h3 id="代码剖析-3"><a href="#代码剖析-3" class="headerlink" title="代码剖析"></a>代码剖析</h3><p>实在是没有什么好写的了 因为和普通的LCT没有什么区别，唯一的区别就是连边/删边要删两条？</p>
+<h4 id="1-我到底应该删哪两条边？"><a href="#1-我到底应该删哪两条边？" class="headerlink" title="1. 我到底应该删哪两条边？"></a>1. 我到底应该删哪两条边？</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用 map&lt;pair&lt;int, int&gt; , int&gt; !!!</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><p><a href="https://www.luogu.com.cn/problem/P2387" target="_blank" rel="noopener">[NOI2014]魔法森林</a><br><a href="https://www.luogu.com.cn/problem/P4172" target="_blank" rel="noopener">[WC2006]水管局长</a></p>
+
+  
+  
+    
+    <div class='footer'>
+      
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=http://akdream.tk/post/cee3a0d7.html/>http://akdream.tk/post/cee3a0d7.html/</a></p>
+              
+            
+          </blockquote>
+        </div>
+      
+      
+    </div>
+  
+  
+    
+
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+  <a class='notlink'>
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2020年9月7日</p>
+  </a>
+</div>
+
+        
+      
+        
+          
+  
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/Link-cut-Tree/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>Link-cut Tree</p></a></div>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
+    
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://akdream.tk/post/cee3a0d7.html/&title=LCT的进阶应用 - AK-dream&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
+          
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://akdream.tk/post/cee3a0d7.html/&title=LCT的进阶应用 - AK-dream&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
+          
+          href="http://service.weibo.com/share/share.php?url=http://akdream.tk/post/cee3a0d7.html/&title=LCT的进阶应用 - AK-dream&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=">
+          
+        </a>
+      
+    
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+        <a class='prev' href='/post/1dcb3735.html/'>
+          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>方伯伯的玉米田[SCOI2014]</p>
+          <p class='content'>题目描述方伯伯在自己的农田边散步，他突然发现田里的一排玉米非常的不美。这排玉米一共有$N$株，它们的高度参差不齐。方伯伯认为单调不下降序列很美，所以他决定先把一些玉米拔高，再把破坏美感的玉米拔除...</p>
+        </a>
+      
+      
+        <a class='next' href='/post/f9901713.html/'>
+          <p class='title'>长跑[BZOJ2959]<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>题目描述某校开展了同学们喜闻乐见的阳光长跑活动。为了能“为祖国健康工作五十年”，同学们纷纷离开寝室，离开教室，离开实验室，到操场参加3000米长跑运动。一时间操场上熙熙攘攘，摩肩接踵，盛况空前。...</p>
+        </a>
+      
+    </div>
+  
+</article>
+
+
+  
+
+  <article class="post white-box reveal shadow" id="comments">
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    <div id="valine_container" class="valine_thread">
+  <i class="fas fa-cog fa-spin fa-fw fa-2x"></i>
+</div>
+
+  </article>
+
+
+
+
+
+  <script>
+  // https://github.com/theme-next/hexo-theme-next/blob/master/layout/_third-party/math/mathjax.swig
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3.0/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    // 文章章节标题不能为 “MathJax” ，否则会报错。
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+
+
+</div>
+<aside class='l_side'>
+  
+  
+    
+    
+
+
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一-LCT维护边双连通分量"><span class="toc-text">一. LCT维护边双连通分量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路讲解"><span class="toc-text">思路讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码剖析"><span class="toc-text">代码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-并查集维护每个点在哪个边双中"><span class="toc-text">1. 并查集维护每个点在哪个边双中</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-access操作写法发生变化"><span class="toc-text">2. access操作写法发生变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-新增操作merge：将x到y的路径缩为一个点"><span class="toc-text">3. 新增操作merge：将x到y的路径缩为一个点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-连边-x-y-时的分类讨论"><span class="toc-text">4. 连边$x,y$时的分类讨论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！"><span class="toc-text">5. 进行任何修改&#x2F;询问操作时都一定是对$fx&#x3D;find(x)$进行，而不是$x$本身！</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题"><span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二-LCT维护子树信息"><span class="toc-text">二. LCT维护子树信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路讲解-1"><span class="toc-text">思路讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码剖析-1"><span class="toc-text">代码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-pushup操作写法发生变化"><span class="toc-text">1. pushup操作写法发生变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-access操作写法发生变化-1"><span class="toc-text">2. access操作写法发生变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-link操作写法发生变化"><span class="toc-text">3. link操作写法发生变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-单点修改-x-时先-makeroot-x-！"><span class="toc-text">4. 单点修改$x$时先 makeroot(x)！</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题-1"><span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-LCT维护形态树-权值树"><span class="toc-text">3. LCT维护形态树+权值树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路讲解-2"><span class="toc-text">思路讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码剖析-2"><span class="toc-text">代码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-权值树该怎么写怎么写，写一个正常的平衡树就行"><span class="toc-text">1. 权值树该怎么写怎么写，写一个正常的平衡树就行</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-splay操作写法发生变化"><span class="toc-text">2. splay操作写法发生变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-划重点！access操作写法"><span class="toc-text">3. 划重点！access操作写法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-makeroot操作写法发生变化"><span class="toc-text">3. makeroot操作写法发生变化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-对于任何修改-查询，先split-x-y-，然后在权值树的对应平衡树上修改-查询"><span class="toc-text">4. 对于任何修改&#x2F;查询，先split(x,y)，然后在权值树的对应平衡树上修改&#x2F;查询</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题-2"><span class="toc-text">例题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-LCT维护边权信息"><span class="toc-text">4. LCT维护边权信息</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#思路讲解-3"><span class="toc-text">思路讲解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码剖析-3"><span class="toc-text">代码剖析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-我到底应该删哪两条边？"><span class="toc-text">1. 我到底应该删哪两条边？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#例题-3"><span class="toc-text">例题</span></a></li></ol></li></ol>
+    </div>
+  </section>
+
+
+  
+
+
+</aside>
+
+
+
+      </div>
+      
+  
+  <footer class="footer clearfix">
+    <br><br>
+    
+      
+        <div class="aplayer-container">
+          
+
+  
+    <meting-js
+      theme='#1BCDFC'
+      autoplay='false'
+      volume='0.7'
+      loop='all'
+      order='random'
+      fixed='true'
+      list-max-height='270px'
+      server='netease'
+      type='playlist'
+      id='3233090300'
+      list-folded='true'>
+    </meting-js>
+  
+
+
+        </div>
+      
+    
+      
+        <br>
+        <div class="social-wrapper">
+          
+            
+          
+            
+          
+            
+          
+        </div>
+      
+    
+      
+        <div><p>博客内容遵循 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener">署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</a></p>
+</div>
+      
+    
+      
+        本站使用
+        <a href="https://github.com/volantis-x/hexo-theme-volantis/tree/4.0.0-rc.3" target="_blank" class="codename">Volantis</a>
+        作为主题，总访问量为
+          <span id="busuanzi_value_site_pv"><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
+          次
+        
+      
+    
+      
+        <div class='copyright'>
+        <p><a href="/">Copyright © 2019-2021 AK-dream</a></p>
+
+        </div>
+      
+    
+  </footer>
+
+
+      <a class="s-top fas fa-arrow-up fa-fw" href='javascript:void(0)'></a>
+    </div>
+  </div>
+  <div>
+    <!-- required -->
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5/dist/jquery.min.js"></script>
+
+<script>
+  function pjax_fancybox() {
+    $(".md").find("img").not('.inline').not('a img').each(function () { //渲染 fancybox
+      var element = document.createElement("a"); // a 标签
+      $(element).attr("class", "fancybox");
+      $(element).attr("pjax-fancybox", "");  // 过滤 pjax
+      $(element).attr("href", $(this).attr("src"));
+      if ($(this).attr("data-original")) {
+        $(element).attr("href", $(this).attr("data-original"));
+      }
+      $(element).attr("data-fancybox", "images");
+      var caption = "";   // 描述信息
+      if ($(this).attr('alt')) {  // 判断当前页面是否存在描述信息
+        $(element).attr('data-caption', $(this).attr('alt'));
+        caption = $(this).attr('alt');
+      }
+      var div = document.createElement("div");
+      $(div).addClass("fancybox");
+      $(this).wrap(div); // 最外层套 div ，其实主要作用还是 class 样式
+      var span = document.createElement("span");
+      $(span).addClass("image-caption");
+      $(span).text(caption); // 加描述
+      $(this).after(span);  // 再套一层描述
+      // 背景层
+      var bgDiv = document.createElement("div");
+      $(bgDiv).addClass("bg");
+      if ($(this).attr('bg')) {
+        $(bgDiv).css('background', $(this).attr('bg'));
+      }
+      $(this).wrap(bgDiv); // 背景层
+      $(this).wrap(element);  // 最后套 a 标签
+    })
+    $(".md").find("img").fancybox({
+      selector: '[data-fancybox="images"]',
+      hash: false,
+      loop: false,
+      closeClick: true,
+      helpers: {
+        overlay: {closeClick: true}
+      },
+      buttons: [
+        "zoom",
+        "close"
+      ]
+    });
+  };
+  function SCload_fancybox() {
+    if($(".md").find("img").not('.inline').not('a img').length+$(".article-entry").find("img").length==0)return;
+    loadCSS("https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css", document.getElementById("loadcss"));
+    setTimeout(function() {
+      loadScript('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', pjax_fancybox)
+    }, 1);
+  };
+  $(function () {
+    SCload_fancybox();
+  });
+</script>
+
+
+<!-- internal -->
+
+  
+  
+  
+    
+<script src="https://cdn.jsdelivr.net/npm/jquery-backstretch@2.1.18/jquery.backstretch.min.js"></script>
+
+    <script type="text/javascript">
+      $(function(){
+        var imgs=["https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/001.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/002.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/003.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/004.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/005.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/006.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/007.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/008.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/009.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/010.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/011.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/012.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/013.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/014.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/015.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/016.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/017.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/018.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/019.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/020.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/021.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/022.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/023.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/024.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/025.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/026.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/027.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/028.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/029.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/030.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/031.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/032.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/033.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/034.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/035.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/036.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/037.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/038.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/039.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/040.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/041.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/042.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/043.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/044.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/045.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/046.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/047.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/048.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/049.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/050.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/051.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/052.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/053.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/054.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/055.jpg", "https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper-minimalist/2020/056.jpg"];
+        if ('true' == 'true') {
+          function shuffle(arr){
+            /*From countercurrent-time*/
+            var n = arr.length;
+            while(n--) {
+              var index = Math.floor(Math.random() * n);
+              var temp = arr[index];
+              arr[index] = arr[n];
+              arr[n] = temp;
+            }
+          }
+          shuffle(imgs);
+        }
+        if ('') {
+          $('').backstretch(
+            imgs,
+          {
+            duration: "5000",
+            fade: "1500"
+          });
+        } else {
+          $.backstretch(
+            imgs,
+          {
+            duration: "5000",
+            fade: "1500"
+          });
+        }
+      });
+    </script>
+  
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.1.0/dist/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazyload",
+    threshold: 0
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    lazyLoadInstance.update();
+  });
+  document.addEventListener('pjax:complete', function () {
+    lazyLoadInstance.update();
+  });
+</script>
+
+
+
+
+  
+  
+    <script>
+      window.FPConfig = {
+        delay: 0,
+        ignoreKeywords: [],
+        maxRPS: 5,
+        hoverDelay: 25
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/gh/gijo-varghese/flying-pages@2.1.2/flying-pages.min.js"></script>
+  
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>
+<script>
+    var clipboard = new ClipboardJS('.btn-copy', {
+        target: function (trigger) {
+            return trigger.nextElementSibling
+        }
+    });
+    function wait(callback, seconds) {
+        var timelag = null;
+        timelag = window.setTimeout(callback, seconds)
+    }
+    function pjax_initCopyCode() {
+		if($(".highlight .code pre").length+$(".article pre code").length==0)return;
+        var copyHtml = '';
+        copyHtml += '<button class="btn-copy" data-clipboard-snippet="">';
+        copyHtml += '<i class="fas fa-copy"></i><span>COPY</span>';
+        copyHtml += '</button>';
+        $(".highlight .code pre").before(copyHtml);
+        $(".article pre code").before(copyHtml);
+        clipboard.off('success').on('success', function (e) {
+            let $btn = $(e.trigger);
+            $btn.addClass('copied');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-check-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPIED';
+            wait(function () {
+                $icon.removeClass('fa-check-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        });
+        clipboard.off('error').on('error', function (e) {
+            e.clearSelection();
+            let $btn = $(e.trigger);
+            $btn.addClass('copy-failed');
+            let $icon = $($btn.find('i'));
+            $icon.removeClass('fa-copy');
+            $icon.addClass('fa-times-circle');
+            let $span = $($btn.find('span'));
+            $span[0].innerText = 'COPY FAILED';
+            wait(function () {
+                $icon.removeClass('fa-times-circle');
+                $icon.addClass('fa-copy');
+                $span[0].innerText = 'COPY'
+            }, 2000)
+        })
+    }
+    $(function () {
+        pjax_initCopyCode()
+    });
+</script>
+
+
+
+
+
+
+  <script>
+  let APlayerController = new Object();
+  APlayerController.id = '3233090300';  // 设定全局音乐播放ID
+  APlayerController.volume = '0.7';
+</script>
+
+  
+<script src="https://cdn.jsdelivr.net/npm/aplayer@1.10/dist/APlayer.min.js"></script>
+
+
+  
+<script src="https://cdn.jsdelivr.net/npm/meting@2.0/dist/Meting.min.js"></script>
+
+
+
+
+
+
+
+
+  
+  
+<script src="/js/valine.js"></script>
+
+
+<script>
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link'.split(',').filter(function (item) {
+    return GUEST_INFO.indexOf(item) > -1
+  });
+  var REQUIRED_FIELDS = ['nick', 'mail', 'link'];
+  var requiredFields = 'nick,mail'.split(',').filter(function (item) {
+    return REQUIRED_FIELDS.indexOf(item) > -1
+  });
+
+  function emoji(path, idx, ext) {
+    return path + "/" + path + "-" + idx + "." + ext;
+  }
+
+  var emojiMaps = {};
+  for (var i = 1; i <= 54; i++) {
+    emojiMaps['tieba-' + i] = emoji('tieba', i, 'png');
+  }
+  for (var i = 1; i <= 101; i++) {
+    emojiMaps['qq-' + i] = emoji('qq', i, 'gif');
+  }
+  for (var i = 1; i <= 116; i++) {
+    emojiMaps['aru-' + i] = emoji('aru', i, 'gif');
+  }
+  for (var i = 1; i <= 125; i++) {
+    emojiMaps['twemoji-' + i] = emoji('twemoji', i, 'png');
+  }
+  for (var i = 1; i <= 4; i++) {
+    emojiMaps['weibo-' + i] = emoji('weibo', i, 'png');
+  }
+
+  function pjax_valine() {
+    if(!document.querySelectorAll("#valine_container")[0])return;
+
+    let pagePlaceholder = $.trim($('#pjax-comment-placeholder').text()) || "快来评论吧~";
+
+    let path = $.trim($('#pjax-comment-path').text());
+    if (path.length == 0) {
+      let defaultPath = '';
+      path = defaultPath || decodeURI(window.location.pathname);
+    }
+
+    var valine = new Valine();
+    valine.init({
+      el: '#valine_container',
+      meta: meta,
+      placeholder: pagePlaceholder,
+      path: path,
+      appId: "ScyRiGCIOXCdDshn2vE9uQ5O-gzGzoHsz",
+      appKey: "z8y25daGX4k3VK0qCE4sm7uH",
+      pageSize: '10',
+      avatar: 'robohash',
+      lang: 'zh-cn',
+      visitor: 'true',
+      highlight: 'true',
+      mathJax: 'true',
+      enableQQ: 'true',
+      requiredFields: requiredFields,
+      emojiCDN: 'https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/valine/',
+      emojiMaps: emojiMaps
+    })
+  }
+
+  $(function () {
+    pjax_valine();
+  });
+</script>
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-busuanzi@2.3/js/busuanzi.pure.mini.js" data-pjax></script>
+
+
+  
+<script src="/js/app.js"></script>
+
+
+
+
+  
+    
+<script src="/js/search.js"></script>
+
+  
+
+
+<!-- optional -->
+
+  <script>
+const SearchServiceimagePath="https://cdn.jsdelivr.net/gh/volantis-x/cdn-volantis@master/img/";
+const ROOT =  ("/" || "/").endsWith('/') ? ("/" || "/") : ("//" || "/" );
+(function ($) {
+  
+    customSearch = new HexoSearch({
+      imagePath: SearchServiceimagePath
+    });
+  
+})(jQuery);
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+  <script defer>
+
+  const LCCounter = {
+    app_id: 'u9j57bwJod4EDmXWdxrwuqQT-MdYXbMMI',
+    app_key: 'jfHtEKVE24j0IVCGHbvuFClp',
+    custom_api_server: '',
+
+    // 查询存储的记录
+    getRecord(Counter, url, title) {
+      return new Promise(function (resolve, reject) {
+        Counter('get', '/classes/Counter?where=' + encodeURIComponent(JSON.stringify({url})))
+          .then(resp => resp.json())
+          .then(({results, code, error}) => {
+            if (code === 401) {
+              throw error;
+            }
+            if (results && results.length > 0) {
+              var record = results[0];
+              resolve(record);
+            } else {
+              Counter('post', '/classes/Counter', {url, title: title, times: 0})
+                .then(resp => resp.json())
+                .then((record, error) => {
+                  if (error) {
+                    throw error;
+                  }
+                  resolve(record);
+                }).catch(error => {
+                console.error('Failed to create', error);
+                reject(error);
+              });
+            }
+          }).catch((error) => {
+          console.error('LeanCloud Counter Error:', error);
+          reject(error);
+        });
+      })
+    },
+
+    // 发起自增请求
+    increment(Counter, incrArr) {
+      return new Promise(function (resolve, reject) {
+        Counter('post', '/batch', {
+          "requests": incrArr
+        }).then((res) => {
+          res = res.json();
+          if (res.error) {
+            throw res.error;
+          }
+          resolve(res);
+        }).catch((error) => {
+          console.error('Failed to save visitor count', error);
+          reject(error);
+        });
+      });
+    },
+
+    // 构建自增请求体
+    buildIncrement(objectId) {
+      return {
+        "method": "PUT",
+        "path": `/1.1/classes/Counter/${ objectId }`,
+        "body": {
+          "times": {
+            '__op': 'Increment',
+            'amount': 1
+          }
+        }
+      }
+    },
+
+    // 校验是否为有效的 UV
+    validUV() {
+      var key = 'LeanCloudUVTimestamp';
+      var flag = localStorage.getItem(key);
+      if (flag) {
+        // 距离标记小于 24 小时则不计为 UV
+        if (new Date().getTime() - parseInt(flag) <= 86400000) {
+          return false;
+        }
+      }
+      localStorage.setItem(key, new Date().getTime().toString());
+      return true;
+    },
+
+    addCount(Counter) {
+      var enableIncr = '' === 'true' && window.location.hostname !== 'localhost';
+      enableIncr = true;
+      var getterArr = [];
+      var incrArr = [];
+      // 请求 PV 并自增
+      var pvCtn = document.querySelector('#lc-sv');
+      if (pvCtn || enableIncr) {
+        var pvGetter = this.getRecord(Counter, 'http://akdream.tk' + '/#lc-sv', 'Visits').then((record) => {
+          incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-sv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + 1;
+              if (pvCtn) {
+                pvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(pvGetter);
+      }
+
+      // 请求 UV 并自增
+      var uvCtn = document.querySelector('#lc-uv');
+      if (uvCtn || enableIncr) {
+        var uvGetter = this.getRecord(Counter, 'http://akdream.tk' + '/#lc-uv', 'Visitors').then((record) => {
+          var vuv = this.validUV();
+          vuv && incrArr.push(this.buildIncrement(record.objectId))
+          var eles = document.querySelectorAll('#lc-uv #number');
+          if (eles.length > 0) {
+            eles.forEach((el,index,array)=>{
+              el.innerText = record.times + (vuv ? 1 : 0);
+              if (uvCtn) {
+                uvCtn.style.display = 'inline';
+              }
+            })
+          }
+        });
+        getterArr.push(uvGetter);
+      }
+
+      // 请求文章的浏览数，如果是当前页面就自增
+      var allPV = document.querySelectorAll('#lc-pv');
+      if (allPV.length > 0 || enableIncr) {
+        for (i = 0; i < allPV.length; i++) {
+          let pv = allPV[i];
+          let title = pv.getAttribute('data-title');
+          var url = 'http://akdream.tk' + pv.getAttribute('data-path');
+          if (url) {
+            var viewGetter = this.getRecord(Counter, url, title).then((record) => {
+              // 是当前页面就自增
+              if (pv.getAttribute('data-path') == window.location.pathname) {
+                incrArr.push(this.buildIncrement(record.objectId));
+              }
+              if (pv) {
+                var ele = pv.querySelector('#lc-pv #number');
+                if (ele) {
+                  if (pv.getAttribute('data-path') == window.location.pathname) {
+                    ele.innerText = (record.times || 0) + 1;
+                  } else {
+                    ele.innerText = record.times || 0;
+                  }
+                  pv.style.display = 'inline';
+                }
+              }
+            });
+            getterArr.push(viewGetter);
+          }
+        }
+      }
+
+      // 如果启动计数自增，批量发起自增请求
+      if (enableIncr) {
+        Promise.all(getterArr).then(() => {
+          incrArr.length > 0 && this.increment(Counter, incrArr);
+        })
+      }
+
+    },
+
+
+    fetchData(api_server) {
+      var Counter = (method, url, data) => {
+        return fetch(`${ api_server }/1.1${ url }`, {
+          method,
+          headers: {
+            'X-LC-Id': this.app_id,
+            'X-LC-Key': this.app_key,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data)
+        });
+      };
+      this.addCount(Counter);
+    },
+
+    refreshCounter() {
+      var api_server = this.app_id.slice(-9) !== '-MdYXbMMI' ? this.custom_api_server : `https://${ this.app_id.slice(0, 8).toLowerCase() }.api.lncldglobal.com`;
+      if (api_server) {
+        this.fetchData(api_server);
+      } else {
+        fetch('https://app-router.leancloud.cn/2/route?appId=' + this.app_id)
+          .then(resp => resp.json())
+          .then(({api_server}) => {
+            this.fetchData('https://' + api_server);
+          });
+      }
+    }
+
+  };
+
+  LCCounter.refreshCounter();
+
+  document.addEventListener('pjax:complete', function () {
+    LCCounter.refreshCounter();
+  });
+</script>
+
+
+
+<!-- more -->
+
+
+    
+      
+
+
+<script src="https://cdn.jsdelivr.net/npm/pjax@0.2.8/pjax.min.js"></script>
+
+<!-- 样式位于：source/css/_third-party/pjaxanimate.styl -->
+
+<div class="pjax-animate">
+  
+    <div class="loading-circle"><div id="loader-circle"></div></div>
+    <script>
+      window.ShowLoading = function() {
+        $(".loading-circle").css("display", "block");
+      };
+      window.HideLoading = function() {
+        $(".loading-circle").css("display", "none");
+      }
+    </script>
+  
+</div>
+
+<script>
+    var pjax;
+    document.addEventListener('DOMContentLoaded', function () {
+      pjax = new Pjax({
+        elements: 'a[href]:not([href^="#"]):not([href="javascript:void(0)"]):not([pjax-fancybox])',
+        selectors: [
+          "title",
+          "#pjax-container",
+          "#pjax-header-nav-list"
+        ],
+        cacheBust: false,   // url 地址追加时间戳，用以避免浏览器缓存
+        timeout: 5000
+      });
+    });
+
+    document.addEventListener('pjax:send', function (e) {
+      window.stop(); // 相当于点击了浏览器的停止按钮
+
+      try {
+        var currentUrl = window.location.pathname;
+        var targetUrl = e.triggerElement.href;
+        var banUrl = [""];
+        if (banUrl[0] != "") {
+          banUrl.forEach(item => {
+            if(currentUrl.indexOf(item) != -1 || targetUrl.indexOf(item) != -1) {
+              window.location.href = targetUrl;
+            }
+          });
+        }
+      } catch (error) {}
+
+      window.subData = null; // 移除标题（用于一二级导航栏切换处）
+      if (typeof $.fancybox != "undefined") {
+        $.fancybox.close();    // 关闭弹窗
+      }
+      $('.l_header .switcher .s-search').removeClass('active'); // 关闭移动端激活的搜索框
+      $('.l_header').removeClass('z_search-open'); // 关闭移动端激活的搜索框
+      $('.wrapper').removeClass('sub'); // 跳转页面时关闭二级导航
+
+      // 解绑事件 避免重复监听
+      $('.s-top').unbind('click');
+      $('.menu a').unbind('click');
+      $(window).unbind('resize');
+      $(window).unbind('scroll');
+      $(document).unbind('scroll');
+      $(document).unbind('click');
+      $('body').unbind('click');
+      window.ShowLoading();
+    });
+
+    document.addEventListener('pjax:complete', function () {
+      // 关于百度统计对 SPA 页面的处理：
+      // 方案一：百度统计>管理>单页应用设置中，打开开启按钮即可对SPA进行统计。 https://tongji.baidu.com/web/help/article?id=324
+      // 方案二：取消注释下列代码。 https://tongji.baidu.com/web/help/article?id=235
+      // 
+
+      // 关于谷歌统计对 SPA 页面的处理：
+      // 当应用以动态方式加载内容并更新地址栏中的网址时，也应该更新通过 gtag.js 存储的网页网址。
+      // https://developers.google.cn/analytics/devguides/collection/gtagjs/single-page-applications?hl=zh-cn
+      
+
+      $('.nav-main').find('.list-v').not('.menu-phone').removeAttr("style",""); // 移除小尾巴的移除
+      $('.menu-phone.list-v').removeAttr("style",""); // 移除小尾巴的移除
+      $('script[data-pjax], .pjax-reload script').each(function () {
+        $(this).parent().append($(this).remove());
+      });
+      try{
+          if (typeof $.fancybox == "undefined") {
+            SCload_fancybox();
+          } else {
+            pjax_fancybox();
+          }
+        
+          
+          if ('') {
+            $('').backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $('.cover-backstretch').backstretch("pause");
+            }else{
+              $('.cover-backstretch').backstretch("next");
+            }
+          } else {
+            $.backstretch("resize");
+            if($('.cover-wrapper').is(':hidden')){
+              $.backstretch("pause");
+            }else{
+              $.backstretch("next");
+            }
+          }
+        
+        
+        
+        
+          pjax_initCopyCode();
+        
+        
+          pjax_valine();
+        
+        
+        
+        
+        
+      } catch (e) {
+        console.log(e);
+      }
+      window.HideLoading();
+    });
+
+    document.addEventListener('pjax:error', function (e) {
+      window.HideLoading();
+      window.location.href = e.triggerElement.href;
+    });
+</script>
+
+    
+  </div>
+</body>
+</html>

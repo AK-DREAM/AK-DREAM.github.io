@@ -1,0 +1,14 @@
+# hexo robots.txt
+User-agent: * 
+Allow: /
+Allow: /post/
+Allow: /page/
+Allow: /tags/
+Allow: /friends/
+Allow: /archives/
+Disallow: /img/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+
+Sitemap: http://akdream.tk/baidusitemap.xml
