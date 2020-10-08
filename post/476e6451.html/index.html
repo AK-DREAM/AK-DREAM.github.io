@@ -477,7 +477,7 @@
 <p>我们把前3项转换一下 发现上面这个式子实际上等于<br>$$\dfrac{1}{2}(\operatorname{depth}(x) + \operatorname{depth}(y) + \operatorname{dis}(x,y) - 2* \operatorname{depth’}(\operatorname{LCA’}(x,y)))$$</p>
 <p>这样一来，前三项可以通过边分治处理出来，然后最后一项则需要在第二棵树上来计算</p>
 <p>具体地说，我们对第一棵树进行边分治，然后将当前分治边左边的点标为黑点，右边标为白点</p>
-<p><img src="https://img2020.cnblogs.com/blog/1755573/202007/1755573-20200726211701613-1994676982.png" class="lazyload" data-srcset="https://img2020.cnblogs.com/blog/1755573/202007/1755573-20200726211701613-1994676982.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="httpss://img2020.cnblogs.com/blog/1755573/202007/1755573-20200726211701613-1994676982.png" class="lazyload" data-srcset="httpss://img2020.cnblogs.com/blog/1755573/202007/1755573-20200726211701613-1994676982.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>假设一个点$x$到分治边的距离为$\operatorname{d}(x)$，分治边的长度是$v$，那么上面式子的前3项实际上就等于$\operatorname{depth}(x) + \operatorname{depth}(y) + (\operatorname{d}(x) + \operatorname{d}(y) + v)$</p>
 <p>所以把每个点的点权$\operatorname{val}(x)$设为$\operatorname{depth}(x) + \operatorname{d}(x)$，然后就可以去处理第二棵树了</p>
 <p>在第二棵树中枚举每个点作为lca，那么现在目标就是找到两个颜色不同，且在两个不同儿子子树里的点使得它们的$\operatorname{val}$之和最大</p>
@@ -520,10 +520,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

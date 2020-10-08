@@ -483,7 +483,7 @@
 <p>保证任何时候这个图都是一个森林。</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>LCT维护子树信息</p>
 <p>假设现在需要用LCT维护原树中一个子树的$siz$</p>
-<p>为了方便查询，一般会把原树中一条重链的顶端$x$这个点的子树信息存储在($x$在LCT中所在的二叉树的根)的位置<br><img src="http://akdream.tk/img/99_2.png" class="lazyload" data-srcset="http://akdream.tk/img/99_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>为了方便查询，一般会把原树中一条重链的顶端$x$这个点的子树信息存储在($x$在LCT中所在的二叉树的根)的位置<br><img src="https://akdream.tk/img/99_2.png" class="lazyload" data-srcset="https://akdream.tk/img/99_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>如上图，原树中的$siz[1]$实际上存在LCT中的$siz[3]$里，而$siz[1]$里存的其实是$1$和$2$的权值和</p>
 <p>但是一个点子树的$siz$不仅包含自己所在的那条重链啊 如何维护轻子树的大小？</p>
 <p>很简单，我们记$lsiz[x]$表示LCT中$x$的所有轻子树的$siz$之和，这样$siz[x]$就等于$siz[lson]+siz[rson]+lsiz[x]+1$</p>
@@ -493,7 +493,7 @@
 <p>但是实际应用中我们肯定不会用LCT去维护子树$siz$这种这么简单的东西的<del>(好像还真有，而且不少)</del>，所以来看看这道题</p>
 <p>对于询问操作，其实我们可以通过LCT来做一个<code>makeroot(u)</code>的操作，这样每次询问就变成了询问所有黑点到根的距离之和了</p>
 <p>对于每条边$u,v$，新建一个点$w$，把$w$的点权设为边权，把$u,v$的点权设为$0$，然后在LCT中连$u,w$和$w,v$，这样询问路径长度就变成询问路径上的点权和了</p>
-<p><img src="http://akdream.tk/img/99_1.png" class="lazyload" data-srcset="http://akdream.tk/img/99_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/99_1.png" class="lazyload" data-srcset="https://akdream.tk/img/99_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>对于点$x$如何统计答案？</p>
 <p>这里是一张LCT的部分图，图中的箭头表示某一个点走到根应该沿什么方向走</p>
 <p>由于LCT中左子树的点在原树中深度较小，所以应该向左走</p>
@@ -541,10 +541,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

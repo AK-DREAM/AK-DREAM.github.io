@@ -473,7 +473,7 @@
   <p>【题目描述】<br>一个国家有$N$个公民，标记为$0,1,2，…，N-1$，每个公民有一个存款额。已知每个公民有一些朋友，同时国家有一条规定朋友间的存款额之差不能大于$d$。也就是说，$a$和$b$是朋友的话，$a$有$x$元的存款，$b$有$y$元，那么$|x-y|\leq d$。给定$d$值与$N$个人的朋友关系，求这个国家最富有的人和最贫穷的人的存款相差最大的可能值是多少？即求贫富差距的最大值的下界。若这个值为无穷大，输出$-1$.</p>
 <p>【输入格式】<br>多组测试数据，第一行一个整数$T$，表示测试数据数量，$1\leq T\leq 5$每组测试数据有相同的结构构成。<br>每组数据的第一行两个整数$N$，$d$，表示人数与朋友间存款差的最大值，其中$2\leq N\leq 50,0\leq d\leq 1000$. 接下来有一个$N\times N$的数组$A$，若$A[i][j]=’Y’$表示$i$与$j$两个人是朋友，否则$A[i][j]=’N’$表示不是朋友。其中$A[i][i]=’N’$，且保证$A[i][j]=A[j][i]$.</p>
 <p>【输出格式】<br>每组数据一行输出，即这个国家的贫富差距最大值的下界，如果这个值为无穷大输出$-1$.</p>
-<p>题解<br>看一下这个例子<img src="http://akdream.tk/img/14_1.png" class="lazyload" data-srcset="http://akdream.tk/img/14_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>题解<br>看一下这个例子<img src="https://akdream.tk/img/14_1.png" class="lazyload" data-srcset="https://akdream.tk/img/14_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>（我根本不会画图）<br>给每对朋友之间连一条边权为$d$的无向边<br>这个例子中 4个人两两都是朋友 其实仔细观察可以发现$i$和$j$之间的最大贫富差距就是他们之间的最短路 (这让我想到了差分约束)<br>再试几次 好像这个结论是对的<br>所以就最短路乱搞就行了 floyd dijkstra SPFA都行<br>证明可能有点类似差分约束（口胡）</p>
 <p>然后 什么情况下最大贫富差距是无穷大呢<br>这个还是很容易看出来 当图中存在不止一个连通块的时候 贫富差距可以是无穷大<br>dfs一遍就完了</p>
 <p>代码</p>
@@ -511,10 +511,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

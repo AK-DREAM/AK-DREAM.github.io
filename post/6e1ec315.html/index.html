@@ -494,9 +494,9 @@
 <p>我们枚举相邻的两个断点$i,j$，现在我们想要知道 以$i$开头的后缀与以$j$开头的后缀的最长公共前缀(LCP) 和 以$i$结尾的前缀与以$j$结尾的前缀的最长公共后缀(LCS)</p>
 <p>LCP可以用后缀数组求；LCS也可以，把原数组翻转之后就变成后缀的LCP了，所以这两个都是可以用ST表$O(1)$求出的</p>
 <p>那么现在我们求出了这两个值</p>
-<h4 id="情况1"><a href="#情况1" class="headerlink" title="情况1"></a>情况1</h4><p><img src="http://akdream.tk/img/83_1.png" class="lazyload" data-srcset="http://akdream.tk/img/83_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h4 id="情况1"><a href="#情况1" class="headerlink" title="情况1"></a>情况1</h4><p><img src="https://akdream.tk/img/83_1.png" class="lazyload" data-srcset="https://akdream.tk/img/83_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>对于这种情况，即$LCP+LCS-1&lt;len$，我们是找不出$\text{AA}$串的</p>
-<h4 id="情况2"><a href="#情况2" class="headerlink" title="情况2"></a>情况2</h4><p><img src="http://akdream.tk/img/83_2.png" class="lazyload" data-srcset="http://akdream.tk/img/83_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<h4 id="情况2"><a href="#情况2" class="headerlink" title="情况2"></a>情况2</h4><p><img src="https://akdream.tk/img/83_2.png" class="lazyload" data-srcset="https://akdream.tk/img/83_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>用脚画图 不愧是我</p>
 <p>$LCP+LCS-1&lt;len$，这个时候就有很多的长为$2*len$的$\text{AA}$串了，图中画出的$\text{AA},\ \text{BB}$就是最靠左和最靠右的两个这样的串</p>
 <p>实际上，我画了”OK”的那个橙色区间的每一个点都是一个长为$2*len$的$\text{AA}$串的开头</p>
@@ -540,10 +540,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

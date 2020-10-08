@@ -471,7 +471,7 @@
   
   
   <p>大家好我叫蒟蒻，这是我的第一篇信竞题解blog</p>
-<p><img src="http://akdream.tk/img/1_1.png" class="lazyload" data-srcset="http://akdream.tk/img/1_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/1_1.png" class="lazyload" data-srcset="https://akdream.tk/img/1_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p><strong>【题目描述】</strong>策策同学特别喜欢逛公园。 公园可以看成一张$N$个点$M$条边构成的有向图，且没有自环和重边。其中$1$号点是公园的入口，$N$号点是公园的出口，每条边有一个非负权值，代表策策经过这条边所要花的时间。</p>
 <p>策策每天都会去逛公园，他总是从$1$号点进去，从$N$号点出来。</p>
 <p>策策喜欢新鲜的事物，他不希望有两天逛公园的路线完全一样，同时策策还是一个特别热爱学习的好孩子，他不希望每天在逛公园这件事上花费太多的时间。如果$1$号点到$N$号点的最短路长为$d$，那么策策只会喜欢长度不超过$d + K$的路线。</p>
@@ -483,7 +483,7 @@
 <p>第一行包含四个整数$N,M,K,PN,M,K,P$， 每两个整数之间用一个空格隔开。</p>
 <p>接下来$m$行，每行三个整数$a_i,b_i,c_i$， 代表编号为$a_i,b_i$的点之间有一条权值为$c_i$的有向边，每两个整数之间用一个空格隔开。</p>
 <p><strong>【输出格式】</strong><br>输出文件包含$T$行，每行一个整数代表答案。</p>
-<p><strong>【思路点拨】</strong><br>是个人应该都能看出此题是要先求出最短路.jpg<br><img src="http://akdream.tk/img/1_2.png" class="lazyload" data-srcset="http://akdream.tk/img/1_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>亲测此题SPFA跑的比Dijkstra快<br>为什么？我人品好<br>最短路只能求出路径长度，计算路径条数似乎做不到——<br><del>然后就gg了</del><br>据说NOIP2017 Day1三题都没有DP 作为Day2压轴题 DP是压轴出场<br>What is DP? Is that Dui Pai?</p>
+<p><strong>【思路点拨】</strong><br>是个人应该都能看出此题是要先求出最短路.jpg<br><img src="https://akdream.tk/img/1_2.png" class="lazyload" data-srcset="https://akdream.tk/img/1_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>亲测此题SPFA跑的比Dijkstra快<br>为什么？我人品好<br>最短路只能求出路径长度，计算路径条数似乎做不到——<br><del>然后就gg了</del><br>据说NOIP2017 Day1三题都没有DP 作为Day2压轴题 DP是压轴出场<br>What is DP? Is that Dui Pai?</p>
 <p>考虑DP的子状态 肯定有一维是要存储当前的点编号<br>注意到此题$k \le 50$第二维可以存储当前路径1-i的长度超出了1-i最短路多少<br>于是$dp[i][j]$就表示$1-i$路径长度为$dis[i]$($1-i$最短路)$+ j$的方案数</p>
 <p>对于任意一个$u$, 设它有一条路径连向$v$。<br>则可以推出$dp[u][l] = \sum dp[v][dis[u]-dis[v]+l-edge(u, v)] (1 \le l \le k)$<br>然后就可以开始快乐DP了</p>
 <p>如何判断$0$环？<br>dfs的时候记录一下就行了<br>要记得加记忆化搜索</p>
@@ -526,10 +526,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

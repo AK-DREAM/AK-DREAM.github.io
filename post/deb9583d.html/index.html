@@ -475,7 +475,7 @@
 <p>接下来一行一个整数$m$。<br>接下来一行$m$个整数表示$s_1\sim s_m$。</p>
 <p>【输出格式】<br>输出一行空格隔开的$m$个整数，第$i$个数代表$s_i$的答案。</p>
 <p>【数据范围】<br>$2 \le m \le n \le 10^6$，$0 \le w \le 10^9$</p>
-<p>暴力做法就很简单 什么最短路LCA之类的随便搞一搞就行<br>然而还是要DP<br><img src="http://akdream.tk/img/23_1.gif" class="lazyload" data-srcset="http://akdream.tk/img/23_1.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>暴力做法就很简单 什么最短路LCA之类的随便搞一搞就行<br>然而还是要DP<br><img src="https://akdream.tk/img/23_1.gif" class="lazyload" data-srcset="https://akdream.tk/img/23_1.gif" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>假设根节点是1，令$f[i]$表示$i$子树内的最小答案，这个答案显然是一遍dfs就能跑出来。<br>子树外的答案怎么推呢？</p>
 <p>其实也挺简单 设$ans[i]$是$i$的最终答案 设$fa$是$i$的父亲<br>情况1$ans[fa]$指的就是$fa$到$i$的距离 即距离$fa$最近的标记点就是$i$<br>此时用$fa$的<strong>次小值</strong>$ans2[fa]$来更新$ans[i]$即$ans[i]=min(ans[i], ans2[fa]+dis[fa][i]) \ dis[fa][i]$指$i$到$fa$边的长度</p>
 <p>情况2 距离$fa$最近的标记点不是$i$（或者$i$根本不是标记点）<br>显然$ans[i]=min(ans[i], ans[fa]+dis[fa][i])$</p>
@@ -518,10 +518,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

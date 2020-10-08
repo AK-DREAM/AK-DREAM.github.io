@@ -473,7 +473,7 @@
   <p>【题目描述】<br>给你一个只包含大写字母的矩阵，求有多少本质不同的子矩阵。</p>
 <p>【输入格式】<br>第一行包含两个整数$n$,$m$,表示矩阵$n$行$m$列 。<br>接下来$n$行描述这个矩阵。</p>
 <p>【输出格式】<br>只含一个整数，为本质不同的子矩阵个数。</p>
-<p>先枚举长度$l$，然后将每个串压位哈希(哈希提前处理好就行)<br>盗用一张图<br><img src="http://akdream.tk/img/33_1.png" class="lazyload" data-srcset="http://akdream.tk/img/33_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>然后从上到下，从左到右，生成一个这样的串：ac$bc</p>
+<p>先枚举长度$l$，然后将每个串压位哈希(哈希提前处理好就行)<br>盗用一张图<br><img src="https://akdream.tk/img/33_1.png" class="lazyload" data-srcset="https://akdream.tk/img/33_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="><br>然后从上到下，从左到右，生成一个这样的串：ac$bc</p>
 <p>对于每个长度$l$生成的新串 将这个新串的本质不同的子串个数累加到答案上<br>可以感性理解一下 枚举$l$就相当是枚举子矩阵的长度</p>
 <p><del>多简单鸭</del></p>
 <p>离散化写起来极其恶臭 迫不得已用了<code>map</code>(因为懒)<br>大家不要学我 离散化大法好 </p>
@@ -514,10 +514,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

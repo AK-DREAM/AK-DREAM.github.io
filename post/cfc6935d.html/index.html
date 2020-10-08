@@ -472,7 +472,7 @@
   
   <p>最近学容斥的时候又碰到一道类似的题目，所以想分享一个套路，拿这题来举例<br>【题目描述】<br>给出一个$N(N\leq 150)$个结点的有向无环简单图。给出4个不同的点$a,b,c,d$，定义不相交路径为两条路径，两条路径的起点分别为$a$和$c$，对应的两条路径的终点为$b$和$d$，要求满足这两条路径不相交，即两条路径上没有公共的点。 现在要求不相交路径的方案数。<br>【输入格式】<br>第一行为$N,M$。表示这个有向无环图有$N$个节点，$M$条边。 接下来$M$行，每行两个整数$x,y$。表示$x$至$y$有一条有向边。 接下来一行四个数$a,b,c,d$，意义如题中所述。<br>【输出格式】<br>输出为一行，即答案（方案数）。</p>
 <p>在写这题之前，先看另外一个问题：</p>
-<p>一个$N*M(N, M \le 100000)$的矩阵，从$(0,0)$出发，每次可以向上或者向右走一步，问有多少种方案到达点$(N,M)$？<br>很显然，答案是$C^N_{N*M}$。<br>那如果规定有$K$个点是不能走的呢？$(k \le 1000)$<br>如果直接递推的话肯定是会超时的 所以我们要使用一些数学方法<br><img src="http://akdream.tk/img/4_1.png" class="lazyload" data-srcset="http://akdream.tk/img/4_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>一个$N*M(N, M \le 100000)$的矩阵，从$(0,0)$出发，每次可以向上或者向右走一步，问有多少种方案到达点$(N,M)$？<br>很显然，答案是$C^N_{N*M}$。<br>那如果规定有$K$个点是不能走的呢？$(k \le 1000)$<br>如果直接递推的话肯定是会超时的 所以我们要使用一些数学方法<br><img src="https://akdream.tk/img/4_1.png" class="lazyload" data-srcset="https://akdream.tk/img/4_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>具体来说，合法方案数等于总方案数减去不合法方案数 <del>废话</del><br>如果直接对于每个不合法点统计有多少路径经过它，然后用总数减去这些方案的话，很有可能会重复删减同一个方案，因为一种方案可能经过多个不合法点。<br>所以我们改变一下思路，设$f[i]$表示有多少路径第一个经过的不合法点为$i$，最后用总方案数减去所有的$f[i]$。由于一条不合法路径无论如何都只会有一个【第一个经过的不合法点】，所以这种方法显然是正确的。</p>
 <p>统计时，只需将所有不合法点先按照$X,Y$轴大小排好序，对于一个不合法点$i$，$f[i] = (从(0,0)到i点的方案数 - \sum f[j]) * 从i点到(N,M)$的方案数，其中$j$是所有位于它左下方的点。<br>时间复杂度$O(k^2)$，<del>这就是数学的力♂量</del></p>
 <p>再看此题，类似的，我们可以设$f[i]$表示第一次相交在$i$点的情况数。<br>先用$DP, Floyd$,等各种奇葩方法求出任意两点$u, v$从$u$到$v$的路径数。<br>然后按照拓扑序算出每个$f[i]$，$f[i] = (cnt[a][i] * cnt[b][i] - \sum f[j] * cnt[j][i]^2) * cnt[i][c] * cnt[i][d]$，$j$为每个拓扑序在$i$之前的点。<br>答案$=$总方案数$- \sum f[i]$</p>
@@ -511,10 +511,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:12:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

@@ -500,15 +500,15 @@
 <p>一眼看上去很正常 等等 <code>+1</code>是什么鬼</p>
 <p>$lca$那个点的颜色假设是$c$那么$c$这种颜色在<code>f[x]</code>和<code>f[y]</code>被各加了一次 又在<code>-2*f[lca]</code>被减了两次 所以还要加回来</p>
 <p>问题是<code>f[x]</code>在access时要怎么维护</p>
-<p>从<a href="https://oi-wiki.org/ds/lct/" target="_blank" rel="noopener">oi-wiki</a>盗了张图 _(:з」∠)_</p>
-<p><img src="http://akdream.tk/img/76_1.png" class="lazyload" data-srcset="http://akdream.tk/img/76_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>从<a href="httpss://oi-wiki.org/ds/lct/">oi-wiki</a>盗了张图 _(:з」∠)_</p>
+<p><img src="https://akdream.tk/img/76_1.png" class="lazyload" data-srcset="https://akdream.tk/img/76_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>有一棵长成这样的树</p>
 <p>假设现在它的轻重边划分是这样的</p>
-<p><img src="http://akdream.tk/img/76_3.png" class="lazyload" data-srcset="http://akdream.tk/img/76_3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/76_3.png" class="lazyload" data-srcset="https://akdream.tk/img/76_3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>(注意 这棵是原树 不是LCT)</p>
 <p>现在我们把$A\rightarrow N$的点全部染成一种新的颜色</p>
 <p>边的虚实要这样修改</p>
-<p><img src="http://akdream.tk/img/76_2.png" class="lazyload" data-srcset="http://akdream.tk/img/76_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/76_2.png" class="lazyload" data-srcset="https://akdream.tk/img/76_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>那么$N\rightarrow O$这条边就会从实边变成虚边 因为$N$的颜色不再和$O$一样了 </p>
 <p>所以我们把$O$子树中所有点的<code>f[x]+1</code></p>
 <p>再往上走的时候$I\rightarrow K$也从实边变成虚边 一样把$K$子树中所有点<code>f[x]+1</code></p>
@@ -557,10 +557,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

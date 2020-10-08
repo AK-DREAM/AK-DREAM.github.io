@@ -474,7 +474,7 @@
 <p>由于不能显得太小气，所以JYY所选礼物的件数最少为$L$件；同时，选得太多也不好拿，因此礼物最多选$R$件。JYY应该如何选择，才能得到最大的美观程度？由于礼物实在太多挑花眼，JYY打算把这个问题交给会编程的你。</p>
 <p>【输入格式】<br>本题每个测试点有多组数据。输入第一行包含一个正整数$T(T\leq 10)$，表示有T组数据。 每组数据包含两行，第一行四个非负整数$N,K,L,R(2\leq L\leq R\leq N)$。第二行包含$N$个正整数，依次表示$A_1,A_2….A_n$，$(A_i\leq 10^8)$,$N, K\leq 50,000$。</p>
 <p>【输出格式】<br>输出$T$行，每行一个非负实数，依次对应每组数据的答案，数据保证答案不会超过$10^3$。输出四舍五入保留4位小数。</p>
-<p><img src="http://akdream.tk/img/3_1.jpg" class="lazyload" data-srcset="http://akdream.tk/img/3_1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/3_1.jpg" class="lazyload" data-srcset="https://akdream.tk/img/3_1.jpg" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>【思路】<br>这题暴力还是比较好写的，直接枚举礼物件数。。。良心题目</p>
 <p>下面是正解：</p>
 <p>很明显较优的一个区间取法是取一段区间$[l, r]$使得该区间最大值和最小值其中一个位于$A[l]$，另一个位于$A[r]$。因为如果使用这种取法，对于每对该区间内的最小值和最大值，$(r - l + k)$会尽量小。<br>所以分类讨论：<br>$1$区间大小小于限制$L$此时必须将区间大小扩大到$L$直接用单调队列维护长度为$L$区间的最大最小值，分别计算$n-L+1$个区间。<br>$2$二分答案$x$<br>        对于一个区间$[L, R]$：<br>        如果最大值在$A[L]$处，最小值在$A[R]$处，则有$A[L]-A[R]-(R-L+K) * x &gt; 0$; 若$max((A[i]+i * mid)-(A[j]+j * mid)-k * mid)&gt;=0$则$x$可以继续扩大。<br>        如果最大值在$A[R]$处，最小值在$A[L]$处，则计算 $max((A[i]-i * mid)-(A[j]-j * mid)-k * mid)$是否大于0。<br>        将$k * mid$移到不等式右边，剩下的$(A[i]-i * mid)$最大值可以用单调队列维护。<br>        可以每次枚举位于左端点或右端点当作最大值，然后在合法的范围内通过单调队列找出一个最小值进行计算。<br>        这题就做完了 <del>好像依然没讲清楚</del></p>
@@ -513,10 +513,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

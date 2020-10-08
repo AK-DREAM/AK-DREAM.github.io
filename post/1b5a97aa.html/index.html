@@ -500,21 +500,21 @@
 <p>由于$A_i^2$已知，我们希望$dp[i]$尽量小就是要让$dp[i]-A_i^2$尽量小 也就是截距要尽量小</p>
 <p>所以我们现在需要在二维平面上选一个点$j$过它画一条斜率为$2*A_i$的直线 直线的截距即是$dp[i]-A_i^2$</p>
 <p>比如像是这样？</p>
-<p><img src="http://akdream.tk/img/78_1.png" class="lazyload" data-srcset="http://akdream.tk/img/78_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/78_1.png" class="lazyload" data-srcset="https://akdream.tk/img/78_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>这是我们在推$dp[6]$当直线斜率为$2*A_6$时 我们发现让它经过第3个点得到的截距最小</p>
 <p>从而我们就能让$dp[6]$的值从$dp[3]$转移过来 然后在图中加入第6个点$(B_6,dp[6]+B_6^2)$</p>
 <p>问题来了 我们怎么快速求得经过哪个点会使得截距最小？</p>
 <p>这题有一个很重要的性质：$x$,即$B_j$; 以及$k$,即$2*A_i$(<strong>满足决策单调性!!!</strong>); 这两个都是递增的 (没有这个性质就不能用单调队列了 而是用cdq分治之类的算法)</p>
 <p>所以第$i$个点一定在第$i-1$个点右边 而且直线的斜率也只会越来越大</p>
 <p>我们对于已经存在的点 维护一个下凸壳 放在单调队列里</p>
-<p><img src="http://akdream.tk/img/78_2.png" class="lazyload" data-srcset="http://akdream.tk/img/78_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/78_2.png" class="lazyload" data-srcset="https://akdream.tk/img/78_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>我们记第$j$个点为$p_j$，记相邻两点连成的直线的斜率为$\operatorname{slope}(p_{j-1},p_j)$</p>
 <p>假设当前在推$dp[6]$的值 则我们要画一条斜率为$2*A_6$的直线</p>
 <p>观察一下 我们发现 找到凸壳上第一个$j$满足$\operatorname{slope}(p_{j},p_{j+1})&gt;2*A_6$，过这个点画直线就是最优的 这个例子中这个点就是3</p>
 <p>而且还有一个之前提到的性质$2*A_i$是单增的 所以如果某个$\operatorname{slope}(p_{j},p_{j+1})&lt;2*A_6$那么对于之后的$i&gt;6$，也一定是$\operatorname{slope}(p_{j},p_{j+1})&lt;2*A_i$所以$j$这个点无论如何都不再会被用到 就直接从队列里弹出  ①</p>
 <p>最后单调队列的队头就是最优的决策点 我们算出$dp[6]$的值 由于$B_j$是递增的 我们可以直接把$(B_6,dp[6]+B_6^2)$拿去更新这个凸包 </p>
 <p>更新时$(B_6,dp[6]+B_6^2)$可能在这里 </p>
-<p><img src="http://akdream.tk/img/78_3.png" class="lazyload" data-srcset="http://akdream.tk/img/78_3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/78_3.png" class="lazyload" data-srcset="https://akdream.tk/img/78_3.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>此时$\operatorname{slope}(p_{4},p_{5})&gt;\operatorname{slope}(p_{5},p_{6})$</p>
 <p>为了维护凸包的性质 我们把$4\rightarrow 5$这条边从队列里删掉(即把5弹出) 然后再加入6  ②</p>
 <p>实现起来其实很简单 结合注释看看吧</p>
@@ -553,10 +553,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

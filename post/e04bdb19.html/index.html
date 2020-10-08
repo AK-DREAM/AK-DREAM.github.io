@@ -474,7 +474,7 @@
 <p>【输入格式】<br>输入文件第一行是用空格隔开的两个正整数 n 和 m，分别 表示岛的个数以及一开始存在的桥数。接下来的一行是用空格隔开的 n 个数，依次描述从岛 1 到岛 n 的重要度排名。随后的 m 行每行是用空格隔开的两个正整数 ai 和 bi，表示一开始就存 在一座连接岛 ai 和岛 bi 的桥。后面剩下的部分描述操作，该部分的第一行是一个正整数 q， 表示一共有 q 个操作，接下来的 q 行依次描述每个操作，操作的格式如上所述，以大写字母 Q 或B 开始，后面跟两个不超过 n 的正整数，字母与数字以及两个数字之间用空格隔开。</p>
 <p>【输出格式】<br>对于每个 Q x k 操作都要依次输出一行，其中包含一个整数，表 示所询问岛屿的编号。如果该岛屿不存在，则输出-1。</p>
 <p>如果是单一的一个问题 求$a_1\sim a_n$中第$k$小的数是什么 显然是可以用一棵权值线段树直接实现的 这里要在岛之间连边 即把两个连通块合并 可以用一个线段树合并的奇技淫巧</p>
-<p>什么是线段树合并？简单来说 就是把两个线段树上对应的点的权值相加得到新的线段树<br>一般需要线段树合并的题 如果直接建树 空间复杂度都会十分巨大 所以一般会使用动态开点 合并时注意一下新树节点的左右儿子<br>放张图理解一下线段树合并<br><img src="http://akdream.tk/img/25_1.png" class="lazyload" data-srcset="http://akdream.tk/img/25_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>什么是线段树合并？简单来说 就是把两个线段树上对应的点的权值相加得到新的线段树<br>一般需要线段树合并的题 如果直接建树 空间复杂度都会十分巨大 所以一般会使用动态开点 合并时注意一下新树节点的左右儿子<br>放张图理解一下线段树合并<br><img src="https://akdream.tk/img/25_1.png" class="lazyload" data-srcset="https://akdream.tk/img/25_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>线段树合并代码</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">merge_tr</span><span class="params">(<span class="keyword">int</span> idx, <span class="keyword">int</span> idy)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!idx) <span class="keyword">return</span> idy;</span><br><span class="line">	<span class="keyword">if</span> (!idy) <span class="keyword">return</span> idx;</span><br><span class="line">	tr[idx].val += tr[idy].val; <span class="comment">//权值</span></span><br><span class="line">	tr[idx].lc = merge_tr(tr[idx].lc, tr[idy].lc); <span class="comment">//左儿子</span></span><br><span class="line">	tr[idx].rc = merge_tr(tr[idx].rc, tr[idy].rc); <span class="comment">//右儿子</span></span><br><span class="line">	<span class="keyword">return</span> idx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//root[x] = merge(root[x], root[y]);</span></span><br></pre></td></tr></table></figure>
 
@@ -514,10 +514,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-04-06T23:23:18+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年4月6日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

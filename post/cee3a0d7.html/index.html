@@ -492,11 +492,11 @@
 <h4 id="4-连边-x-y-时的分类讨论"><a href="#4-连边-x-y-时的分类讨论" class="headerlink" title="4. 连边$x,y$时的分类讨论"></a>4. 连边$x,y$时的分类讨论</h4><p>伪代码如下 维护两点联通性可以再开一个并查集，也可以用<code>findroot</code></p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">LINK</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> fx = find(x), fy = find(y);</span><br><span class="line">	<span class="keyword">if</span> (fx == fy) <span class="keyword">return</span>; <span class="comment">//x,y已在同一边双中</span></span><br><span class="line">	<span class="keyword">if</span> (x,y不在同一棵树中) &#123;</span><br><span class="line">		link(x,y); <span class="comment">//如果用另一个并查集维护联通性记得更新并查集</span></span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		merge(fx,fy); <span class="comment">//是fx,fy 不是x,y!!!</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！"><a href="#5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！" class="headerlink" title="5. 进行任何修改/询问操作时都一定是对$fx=find(x)$进行，而不是$x$本身！"></a>5. 进行任何修改/询问操作时都一定是对$fx=find(x)$进行，而不是$x$本身！</h4><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><a href="https://darkbzoj.tk/problem/2959" target="_blank" rel="noopener">[bzoj2959]长跑</a><br><a href="https://www.luogu.com.cn/problem/P2542" target="_blank" rel="noopener">[AHOI2005]航线规划</a></p>
+<h4 id="5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！"><a href="#5-进行任何修改-询问操作时都一定是对-fx-find-x-进行，而不是-x-本身！" class="headerlink" title="5. 进行任何修改/询问操作时都一定是对$fx=find(x)$进行，而不是$x$本身！"></a>5. 进行任何修改/询问操作时都一定是对$fx=find(x)$进行，而不是$x$本身！</h4><h3 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h3><p><a href="httpss://darkbzoj.tk/problem/2959">[bzoj2959]长跑</a><br><a href="httpss://www.luogu.com.cn/problem/P2542">[AHOI2005]航线规划</a></p>
 <h2 id="二-LCT维护子树信息"><a href="#二-LCT维护子树信息" class="headerlink" title="二. LCT维护子树信息"></a>二. LCT维护子树信息</h2><p>LCT一般用来维护路径信息而不是子树信息，因为LCT维护子树信息非常不方便。。。</p>
 <p>但是有些毒瘤题可能在询问子树信息的同时还有加边删边操作，或者可能有换根操作，就只能被迫使用LCT了</p>
 <h3 id="思路讲解-1"><a href="#思路讲解-1" class="headerlink" title="思路讲解"></a>思路讲解</h3><p>假设现在需要用LCT维护原树中一个子树的$siz$</p>
-<p>为了方便查询，一般会把原树中一条重链的顶端$x$的子树信息存储在 ($x$在LCT中所在的二叉树的根) 的位置<br><img src="http://akdream.tk/img/99_2.png" class="lazyload" data-srcset="http://akdream.tk/img/99_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>为了方便查询，一般会把原树中一条重链的顶端$x$的子树信息存储在 ($x$在LCT中所在的二叉树的根) 的位置<br><img src="https://akdream.tk/img/99_2.png" class="lazyload" data-srcset="https://akdream.tk/img/99_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>如上图，原树中的$siz[1]$实际上存在LCT中的$siz[3]$里</p>
 <p>但是一个点子树的$siz$不仅包含自己所在的那条重链的$siz$啊 如何维护轻子树的大小？</p>
 <p>我们记$lsiz[x]$表示LCT中$x$的所有轻子树的$siz$之和，这样$siz[x]$就等于$siz[lson]+siz[rson]+lsiz[x]+1$</p>
@@ -509,7 +509,7 @@
 
 <h4 id="3-link操作写法发生变化"><a href="#3-link操作写法发生变化" class="headerlink" title="3. link操作写法发生变化"></a>3. link操作写法发生变化</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">link</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	makeroot(x); makeroot(y); <span class="comment">//x,y都要makeroot!</span></span><br><span class="line">	fa[x] = y;</span><br><span class="line">	lsum[y] += sum[x]; <span class="comment">//x成为y的轻儿子</span></span><br><span class="line">	pushup(y);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h4 id="4-单点修改-x-时先-makeroot-x-！"><a href="#4-单点修改-x-时先-makeroot-x-！" class="headerlink" title="4. 单点修改$x$时先 makeroot(x)！"></a>4. 单点修改$x$时先 <code>makeroot(x)</code>！</h4><h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p><a href="https://www.luogu.com.cn/problem/P4219" target="_blank" rel="noopener">[BJOI2014]大融合</a><br><a href="https://www.luogu.com.cn/problem/P4299" target="_blank" rel="noopener">[bzoj3510]首都</a></p>
+<h4 id="4-单点修改-x-时先-makeroot-x-！"><a href="#4-单点修改-x-时先-makeroot-x-！" class="headerlink" title="4. 单点修改$x$时先 makeroot(x)！"></a>4. 单点修改$x$时先 <code>makeroot(x)</code>！</h4><h3 id="例题-1"><a href="#例题-1" class="headerlink" title="例题"></a>例题</h3><p><a href="httpss://www.luogu.com.cn/problem/P4219">[BJOI2014]大融合</a><br><a href="httpss://www.luogu.com.cn/problem/P4299">[bzoj3510]首都</a></p>
 <h2 id="3-LCT维护形态树-权值树"><a href="#3-LCT维护形态树-权值树" class="headerlink" title="3. LCT维护形态树+权值树"></a>3. LCT维护形态树+权值树</h2><p>这类题目一般是要求维护树上路径信息，但是经常会对路径上的点权做一些奇怪的操作</p>
 <p>如[BZOJ3159]决战：路径翻转操作<br> [GDSOI2017]中学生数据结构题：路径循环移位操作</p>
 <h3 id="思路讲解-2"><a href="#思路讲解-2" class="headerlink" title="思路讲解"></a>思路讲解</h3><p>众所周知，LCT上的Splay以原树中的节点深度为关键字，随便你怎么<code>rotate</code>，只要节点的相对次序不变，那么就只有辅助树的形态会发生改变，而对应的原树形态不变</p>
@@ -532,7 +532,7 @@
 
 <h4 id="4-对于任何修改-查询，先split-x-y-，然后在权值树的对应平衡树上修改-查询"><a href="#4-对于任何修改-查询，先split-x-y-，然后在权值树的对应平衡树上修改-查询" class="headerlink" title="4. 对于任何修改/查询，先split(x,y)，然后在权值树的对应平衡树上修改/查询"></a>4. 对于任何修改/查询，先split(x,y)，然后在权值树的对应平衡树上修改/查询</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y, ll v)</span> </span>&#123; split(x, y); VAL::Add(rt[y], v); &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Rev</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); VAL::Rev(rt[y]); &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Qsum</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); <span class="keyword">return</span> VAL::sum[rt[y]]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Qmax</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); <span class="keyword">return</span> VAL::mx[rt[y]]; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ll <span class="title">Qmin</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123; split(x, y); <span class="keyword">return</span> VAL::mn[rt[y]]; &#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3><p><a href="https://darkbzoj.tk/problem/3159" target="_blank" rel="noopener">[bzoj3159]决战</a></p>
+<h3 id="例题-2"><a href="#例题-2" class="headerlink" title="例题"></a>例题</h3><p><a href="httpss://darkbzoj.tk/problem/3159">[bzoj3159]决战</a></p>
 <h2 id="4-LCT维护边权信息"><a href="#4-LCT维护边权信息" class="headerlink" title="4. LCT维护边权信息"></a>4. LCT维护边权信息</h2><p>LCT怎么维护边权？LCT维护不了边权。</p>
 <p>但是可以把边拆成点，然后就变成维护点权了（</p>
 <p>多用于维护生成树</p>
@@ -546,7 +546,7 @@
 <h3 id="代码剖析-3"><a href="#代码剖析-3" class="headerlink" title="代码剖析"></a>代码剖析</h3><p>实在是没有什么好写的了 因为和普通的LCT没有什么区别，唯一的区别就是连边/删边要删两条？</p>
 <h4 id="1-我到底应该删哪两条边？"><a href="#1-我到底应该删哪两条边？" class="headerlink" title="1. 我到底应该删哪两条边？"></a>1. 我到底应该删哪两条边？</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用 map&lt;pair&lt;int, int&gt; , int&gt; !!!</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><p><a href="https://www.luogu.com.cn/problem/P2387" target="_blank" rel="noopener">[NOI2014]魔法森林</a><br><a href="https://www.luogu.com.cn/problem/P4172" target="_blank" rel="noopener">[WC2006]水管局长</a></p>
+<h3 id="例题-3"><a href="#例题-3" class="headerlink" title="例题"></a>例题</h3><p><a href="httpss://www.luogu.com.cn/problem/P2387">[NOI2014]魔法森林</a><br><a href="httpss://www.luogu.com.cn/problem/P4172">[WC2006]水管局长</a></p>
 
   
   
@@ -581,10 +581,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

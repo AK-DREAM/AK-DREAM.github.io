@@ -470,7 +470,7 @@
 
   
   
-  <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>题目背景太长不放 <a href="https://www.luogu.com.cn/problem/P3233" target="_blank" rel="noopener">传送门</a></p>
+  <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>题目背景太长不放 <a href="httpss://www.luogu.com.cn/problem/P3233">传送门</a></p>
 <p>给你一棵$n$个节点的树，有$q$次询问，每次指定$m_i$个节点为关键节点；对于任意一个节点，它被距离自己树上距离最近的那个关键节点管辖；输出每个关键节点各管辖多少个节点</p>
 <p>$n,, q \le 300000$，$\sum m_i\le 300000$</p>
 <h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>看到$\sum m_i\le 300000$想到什么了？虚树！</p>
@@ -478,7 +478,7 @@
 <p>(为了方便我们要求$1$号节点一定要在虚树里)</p>
 <p>注意这里建虚树要加上一个边权，表示原树上两个节点的距离</p>
 <p>首先，对于每个虚树上的点，我们求出它们各自被哪个关键节点管辖，记为$in_x$，<del>这个比较简单就不讲了</del>；把点到管辖它的关键节点之间的距离记为$dis_x$</p>
-<p>然后我们考虑虚树上的一条边$u\rightarrow v$，$u$是$v$的父亲<br><img src="http://akdream.tk/img/85_1.png" class="lazyload" data-srcset="http://akdream.tk/img/85_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p>然后我们考虑虚树上的一条边$u\rightarrow v$，$u$是$v$的父亲<br><img src="https://akdream.tk/img/85_1.png" class="lazyload" data-srcset="https://akdream.tk/img/85_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>这条边上一定存在一个断点$x$，使得上面蓝圈那部分的所有节点被$in_u$管辖，下面绿圈那部分被$in_v$管辖</p>
 <p>我们怎么求出这个断点$x$呢？</p>
 <p>如果一个$u\rightarrow v$链上的点$y$在绿圈部分，$y$离$u$的距离是$a$，离$v$的距离是$b$，那么一定满足：<br>+$in_u$编号小于$in_v$时，$y$须满足$in_u+a&gt;in_v+b$<br>+$in_u$编号大于$in_v$时，$y$须满足$in_u+a\ge in_v+b$<br>由于我们之前记录了虚树上面每条边的实际长度，所以我们知道$b$，就可以直接用$u\rightarrow v$的长度减去$b$得到$a$</p>
@@ -521,10 +521,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:12:20+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

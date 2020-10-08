@@ -469,7 +469,7 @@
   
   
   <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p>我们知道一棵有根树可以进行深度优先遍历（DFS）以及广度优先遍历（BFS）来生成这棵树的 DFS 序以及 BFS 序。两棵不同的树的 DFS 序有可能相同，并且它们的 BFS 序也有可能相同，例如下面两棵树的 DFS 序都是 <code>1 2 4 5 3</code>，BFS 序都是 <code>1 2 3 4 5</code>。</p>
-<p><img src="http://akdream.tk/img/103_1.png" class="lazyload" data-srcset="http://akdream.tk/img/103_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/103_1.png" class="lazyload" data-srcset="https://akdream.tk/img/103_1.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>现给定一个 DFS 序和 BFS 序，我们想要知道，符合条件的有根树中，树的高度的平均值。即，假如共有$K$棵不同的有根树具有这组 DFS 序和 BFS 序，且他们的高度分别是$h_1,h_2,\cdots,h_K$，那么请你输出：</p>
 <p>$$\dfrac{h_1+h_2+\cdots +h_K}{K}$$</p>
 <h3 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h3><p>第一行包含$n$个正整数 ，表示树的节点个数。</p>
@@ -486,7 +486,7 @@
 <h3 id="条件二"><a href="#条件二" class="headerlink" title="条件二"></a>条件二</h3><p>设$p[i]$表示$i$在dfs序中在第几个，如$p[3]=5,p[4]=3$</p>
 <p>对于$i \in [1, n)$，如果$p[i]&gt;p[i+1]$，那么有如下两种情况：</p>
 <p>(以样例$p[3]&gt;p[4]$为例)</p>
-<p><img src="http://akdream.tk/img/103_2.png" class="lazyload" data-srcset="http://akdream.tk/img/103_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
+<p><img src="https://akdream.tk/img/103_2.png" class="lazyload" data-srcset="https://akdream.tk/img/103_2.png" srcset="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII="></p>
 <p>得到限制条件：对于$i \in [1, n)$，如果$p[i]&gt;p[i+1]$，那么$i$与$i+1$之间要分段</p>
 <p>样例中，$3$和$4$之间必须要有分割线，即$1|23|45$</p>
 <p>样例中，只有$3$满足$p[i]&gt;p[i+1]$，所以已经确定的必须要有的分割线为$1|23|45$</p>
@@ -542,10 +542,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-26T22:07:22+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月26日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 

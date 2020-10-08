@@ -475,7 +475,7 @@
 <p>接下来$n-1$行，每行三个整数$u_i,v_i,w_i$，代表有一条连接$u_i$与$v_i$，边权为$w_i$</p>
 <p>【输出格式】<br>输出一个整数，表示最小边数量。</p>
 <p>如果不存在这样的路径，输出 <code>-1</code>。</p>
-<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>点分治 见 <a href="http://akdream.tk/post/a082c72e.html/">http://akdream.tk/post/a082c72e.html/</a></p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>点分治 见 <a href="https://akdream.tk/post/a082c72e.html/">https://akdream.tk/post/a082c72e.html/</a></p>
 <p>统计答案就是开一个桶$buc[i]$存储 当前子树中 到根路径的边权和为$i$的路径中最少的边数</p>
 <p>那么 统计以$x$为根的子树的答案时 依次枚举$x$的每一个儿子 由于在同一个儿子子树中的两个点不能配对 所以我们把这个儿子的子树里的所有点 都拿去($x$的所有前面枚举过的儿子 的子树)组成的桶里匹配 设当前儿子子树中的某个点为$y$那么更新答案$ans=\min(ans,q[y]+buc[k-p[y]])$，$q[y]$表示$y$到$x$经过多少条边，$p[y]$表示$y$到$x$路径的边权和</p>
 <p>吐槽一下 <del>断句难题</del> <del>组织语言困难综合征</del></p>
@@ -515,10 +515,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-09-07T23:13:12+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年9月7日</p>
+    <p>更新于：2020年10月8日</p>
   </a>
 </div>
 
