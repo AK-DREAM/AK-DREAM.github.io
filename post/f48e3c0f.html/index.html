@@ -17,9 +17,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>脑洞治疗仪「SHOI2015」 - AK-dream</title>
-  
-    <meta name="keywords" content="线段树">
+  <title>矩形区域[IOI2019] - AK-dream</title>
   
 
   
@@ -377,7 +375,7 @@
  
 <div id="pjax-data" style="display: none"> 
   <div id="pjax-ispage">true</div> 
-  <div id="pjax-pageTitle">脑洞治疗仪「SHOI2015」</div> 
+  <div id="pjax-pageTitle">矩形区域[IOI2019]</div> 
   <div id="pjax-enable-cover">true</div> 
   <div id="pjax-comment-path"></div> 
   <div id="pjax-comment-placeholder"></div> 
@@ -417,7 +415,7 @@
     
     
       <h1 class="title">
-        脑洞治疗仪「SHOI2015」
+        矩形区域[IOI2019]
       </h1>
       <div class='new-meta-box'>
         
@@ -441,7 +439,7 @@
             <div class="new-meta-item date">
   <a class='notlink'>
     <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
-    <p>发布于：2020年2月5日</p>
+    <p>发布于：2020年11月4日</p>
   </a>
 </div>
 
@@ -452,7 +450,7 @@
   <div class="new-meta-item browse leancloud">
     <a class='notlink'>
       
-      <div id="lc-pv" data-title="脑洞治疗仪「SHOI2015」" data-path="/post/f1a598da.html/">
+      <div id="lc-pv" data-title="矩形区域[IOI2019]" data-path="/post/f48e3c0f.html/">
         <i class="fas fa-eye fa-fw" aria-hidden="true"></i>
         <span id='number'><i class="fas fa-circle-notch fa-spin fa-fw" aria-hidden="true"></i></span>
         次浏览
@@ -470,42 +468,16 @@
 
   
   
-  <p>【题目描述】<br>曾经发明了自动刷题机的发明家 SHTSC 又公开了他的新发明：脑洞治疗仪——一种可以治疗他因为发明而日益增大的脑洞的神秘装置。<br>为了简单起见，我们将大脑视作一个$01$序列。$1$代表这个位置的脑组织正常工作，$0$代表这是一块脑洞。</p>
-<table class="ui celled table"><tbody><tr><td style="text-align:center;">1</td><td style="text-align:center;">0</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td></tr></tbody></table>
-脑洞治疗仪修补某一块脑洞的基本工作原理就是将另一块连续区域挖出，将其中正常工作的脑组织填补在这块脑洞中。（所以脑洞治疗仪是脑洞的治疗仪？）
-
-<p>例如，用上面第$8$号位置到第$10$号位置去修补第$1$号位置到第$4$号位置的脑洞，我们就会得到：</p>
-<table class="ui celled table"><tbody><tr><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr></tbody></table>
-如果再用第$1$号位置到第$4$号位置去修补第$8$号位置到第$10$号位置：
-<table class="ui celled table"><tbody><tr><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td></tr></tbody></table>
-这是因为脑洞治疗仪会把多余出来的脑组织直接扔掉。
-
-<p>如果再用第$7$号位置到第$10$号位置去填补第$1$号位置到第$6$号位置：</p>
-<table class="ui celled table"><tbody><tr><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">1</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td><td style="text-align:center;">0</td></tr></tbody></table>
-这是因为如果新脑洞挖出来的脑组织不够多，脑洞治疗仪仅会尽量填补位置比较靠前的脑洞。
-
-<p>假定初始时 SHTSC 并没有脑洞，给出一些挖脑洞和脑洞治疗的操作序列，你需要即时回答 SHTSC 的问题：在大脑某个区间中最大的连续脑洞区域有多大。</p>
-<p>【输入格式】<br>第一行两个整数$n$、$m$，表示 SHTSC 的大脑可分为从$1$到$n$编号的$n$个连续区域，有$m$个操作。</p>
-<p>以下$m$行每行是下列三种格式之一：</p>
-<ul>
-    <li>$0\quad l\quad r$：SHTSC 挖了一个范围为$[l, r]$的脑洞。</li>
-    <li>$1\quad l_0\quad r_0\quad l_1\quad r_1$：SHTSC 进行了一次脑洞治疗，用从$l_0$到$r_0$的脑组织修补$l_1$到$r_1$的脑洞。</li>
-    <li>$2\quad l\quad r$：SHTSC 询问$[l, r]$区间内最大的脑洞有多大。</li>
-</ul>
-上述区间均在$[1, n]$范围内。
-
-<p>【输出格式】<br>对于每个询问，输出一行一个整数，表示询问区间内最大连续脑洞区域有多大。</p>
-<p>其实就是个板子题。。。<br>可以先看看<a href="httpss://www.luogu.com.cn/problem/SP1043">Luogu SP1043</a></p>
-<p>以上面这题为例，对于这种询问 “哪段区间是最…的”(哪段区间和最大) ，一般思路是线段树的每个节点$[l,r]$维护和最大的前缀$[l,x]$，后缀$[y,r]$在哪里。<br>然后父亲节点的前缀最大就是 MAX(左儿子最大的前缀和，左儿子整段区间的和+右儿子最大前缀和) 后缀同理 正确性显然。</p>
-<p>这道题也是类似的，父亲节点的前缀最大就是 (左儿子整个区间都是0 ？ 左儿子整个区间+右儿子前缀0数量 : 左儿子前缀0数量) 后缀同理。</p>
-<p>然后再维护一下区间和来进行修补操作就完了。。。</p>
-<p>提一下怎么进行填1的操作</p>
-<p>伪代码：<br>int update () {<br>    如果 (整段区间在填补范围$[x,y]$内 &amp;&amp; 剩下的可用1数量足以填满当前区间的0) {<br>        打上懒标记;<br>        return 可用1数量-填满当前区间需要的1数量;<br>    }<br>    pushdown();<br>    可用1数量 = update(左儿子);//优先左儿子<br>    可用1数量 = update(右儿子);<br>    return 可用1数量<br>} </p>
-<p>经证明，这个的时间复杂度依然是$O(log\ n)$的 蒟蒻并不会证</p>
-<p>总时间复杂度$O((n+m)log\ n)$</p>
-<p>【代码】</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> lson ind&lt;&lt;1</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rson ind&lt;&lt;1|1</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">read</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> ch = getchar();</span><br><span class="line">	<span class="keyword">for</span> (; ch &gt; <span class="string">'9'</span> || ch &lt; <span class="string">'0'</span>; ch = getchar()) <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; ch &lt;= <span class="string">'9'</span> &amp;&amp; ch &gt;= <span class="string">'0'</span>; ch = getchar()) x = (x &lt;&lt; <span class="number">1</span>) + (x &lt;&lt; <span class="number">3</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">	<span class="keyword">return</span> x * f;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, tp, l0, r0, l1, r1; </span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">segtree</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> l, r, tot, pre, suf, tag, mx;</span><br><span class="line">&#125; tr[<span class="number">2000005</span>];	</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> ind, <span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">	tr[ind].tag = x;</span><br><span class="line">	<span class="keyword">if</span> (x == <span class="number">0</span>) &#123;</span><br><span class="line">		tr[ind].tot = <span class="number">0</span>; tr[ind].pre = tr[ind].suf = tr[ind].mx = (tr[ind].r - tr[ind].l + <span class="number">1</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">		tr[ind].tot = (tr[ind].r - tr[ind].l + <span class="number">1</span>); tr[ind].pre = tr[ind].suf = tr[ind].mx = <span class="number">0</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushup</span><span class="params">(<span class="keyword">int</span> ind)</span> </span>&#123;</span><br><span class="line">	tr[ind].tot = tr[lson].tot + tr[rson].tot;</span><br><span class="line">	tr[ind].pre = tr[lson].pre; tr[ind].suf = tr[rson].suf;</span><br><span class="line">	<span class="keyword">if</span> (tr[lson].pre == tr[lson].r - tr[lson].l + <span class="number">1</span>) tr[ind].pre += tr[rson].pre;</span><br><span class="line">	<span class="keyword">if</span> (tr[rson].suf == tr[rson].r - tr[rson].l + <span class="number">1</span>) tr[ind].suf += tr[lson].suf;</span><br><span class="line">	tr[ind].mx = max(max(tr[lson].mx, tr[rson].mx), tr[lson].suf + tr[rson].pre);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">build</span><span class="params">(<span class="keyword">int</span> ind, <span class="keyword">int</span> l, <span class="keyword">int</span> r)</span> </span>&#123;</span><br><span class="line">	tr[ind].l = l; tr[ind].r = r; tr[ind].tag = <span class="number">-1</span>; </span><br><span class="line">	<span class="keyword">if</span> (l == r) &#123;</span><br><span class="line">		tr[ind].tot = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	build(lson, l, mid); build(rson, mid+<span class="number">1</span>, r);</span><br><span class="line">	pushup(ind);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">pushdown</span><span class="params">(<span class="keyword">int</span> ind)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (tr[ind].tag == <span class="number">0</span>) &#123;</span><br><span class="line">		add(lson, <span class="number">0</span>); add(rson, <span class="number">0</span>);</span><br><span class="line">	&#125; <span class="keyword">else</span> <span class="keyword">if</span> (tr[ind].tag == <span class="number">1</span>) &#123;</span><br><span class="line">		add(lson, <span class="number">1</span>); add(rson, <span class="number">1</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	tr[ind].tag = <span class="number">-1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update1</span><span class="params">(<span class="keyword">int</span> ind, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l = tr[ind].l, r = tr[ind].r;</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= l &amp;&amp; r &lt;= y) &#123;</span><br><span class="line">		add(ind, <span class="number">0</span>);</span><br><span class="line">		<span class="keyword">return</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	pushdown(ind);</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= mid) update1(lson, x, y); </span><br><span class="line">	<span class="keyword">if</span> (mid &lt; y) update1(rson, x, y);</span><br><span class="line">	pushup(ind);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">update2</span><span class="params">(<span class="keyword">int</span> ind, <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> num)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (!num) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> l = tr[ind].l, r = tr[ind].r;</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= l &amp;&amp; r &lt;= y &amp;&amp; num &gt;= r-l+<span class="number">1</span>-tr[ind].tot) &#123;</span><br><span class="line">		<span class="keyword">int</span> ret = num-(r-l+<span class="number">1</span>-tr[ind].tot);</span><br><span class="line">		add(ind, <span class="number">1</span>);</span><br><span class="line">		<span class="keyword">return</span> ret;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	pushdown(ind);</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= mid) num = update2(lson, x, y, num);</span><br><span class="line">	<span class="keyword">if</span> (mid &lt; y) num = update2(rson, x, y, num); </span><br><span class="line">	pushup(ind);</span><br><span class="line">	<span class="keyword">return</span> num;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">query1</span><span class="params">(<span class="keyword">int</span> ind, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l = tr[ind].l, r = tr[ind].r;</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= l &amp;&amp; r &lt;= y) &#123;	</span><br><span class="line">		<span class="keyword">return</span> tr[ind].tot;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>, ret = <span class="number">0</span>;</span><br><span class="line">	pushdown(ind);</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= mid) ret += query1(lson, x, y); </span><br><span class="line">	<span class="keyword">if</span> (mid &lt; y) ret += query1(rson, x, y);</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">segtree <span class="title">merge</span><span class="params">(segtree a, segtree b)</span> </span>&#123;</span><br><span class="line">	segtree ret; ret.l = a.l; ret.r = b.r;</span><br><span class="line">	ret.tot = a.tot + b.tot; ret.pre = a.pre; ret.suf = b.suf;</span><br><span class="line">	<span class="keyword">if</span> (a.pre == a.r - a.l + <span class="number">1</span>) ret.pre += b.pre;</span><br><span class="line">	<span class="keyword">if</span> (b.suf == b.r - b.l + <span class="number">1</span>) ret.suf += a.suf;</span><br><span class="line">	ret.mx = max(max(a.mx, b.mx), a.suf + b.pre);</span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">segtree <span class="title">query2</span><span class="params">(<span class="keyword">int</span> ind, <span class="keyword">int</span> x, <span class="keyword">int</span> y)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> l = tr[ind].l, r = tr[ind].r;</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= l &amp;&amp; r &lt;= y) <span class="keyword">return</span> tr[ind];</span><br><span class="line">	<span class="keyword">int</span> mid = (l + r) &gt;&gt; <span class="number">1</span>; segtree a, b; a.mx = b.mx = <span class="number">-1</span>;</span><br><span class="line">	pushdown(ind);</span><br><span class="line">	<span class="keyword">if</span> (x &lt;= mid) a = query2(lson, x, y);</span><br><span class="line">	<span class="keyword">if</span> (mid &lt; y) b = query2(rson, x, y);</span><br><span class="line">	<span class="keyword">if</span> (a.mx == <span class="number">-1</span>) <span class="keyword">return</span> b;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span> (b.mx == <span class="number">-1</span>) <span class="keyword">return</span> a;</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> merge(a, b);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	n = read(); m = read();</span><br><span class="line">	build(<span class="number">1</span>, <span class="number">1</span>, n);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; i++) &#123;</span><br><span class="line">		tp = read();</span><br><span class="line">		<span class="keyword">if</span> (tp == <span class="number">0</span>) &#123;</span><br><span class="line">			l0 = read(); r0 = read();</span><br><span class="line">			update1(<span class="number">1</span>, l0, r0);</span><br><span class="line">		&#125; <span class="keyword">else</span> <span class="keyword">if</span> (tp == <span class="number">1</span>) &#123;</span><br><span class="line">			l0 = read(); r0 = read(); l1 = read(); r1 = read();</span><br><span class="line">			<span class="keyword">int</span> num = query1(<span class="number">1</span>, l0, r0); update1(<span class="number">1</span>, l0, r0); update2(<span class="number">1</span>, l1, r1, num); </span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			l0 = read(); r0 = read();</span><br><span class="line">			segtree ans = query2(<span class="number">1</span>, l0, r0);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans.mx);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+  <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><p><a href="https://loj.ac/problem/3177" target="_blank" rel="noopener">https://loj.ac/problem/3177</a></p>
+<h3 id="题解"><a href="#题解" class="headerlink" title="题解"></a>题解</h3><p>假设某个合法的矩形只有一行，是$a_{1,l}\sim a_{1,r}$，那么显然有这样一个结论成立：$a_{1,l-1}$是$a_{1,r+1}$左侧第一个大于它的 或者$a_{1,r+1}$是$a_{1,l-1}$右侧第一个大于它的</p>
+<p>那么对于一个合法矩形，每一行都应该满足这个条件</p>
+<p>每一列应该也要满足类似的条件</p>
+<p>所以对于一行(或列)，可以通过单调栈来求出所有这样的$[l,r]$</p>
+<p>对于每一行都用这样的方法求出这样的$[l,r]$，用一个<code>vector</code>:$ok[l][r]$来存储所有$a_{i,l}~a_{i,r}$为合法段的$i$</p>
+<p>枚举矩形右边界$r$，并每次更新$lok[u][d]$表示只考虑列的限制，当矩形的上下边界为u,d，右边界为r时，左边界最左是哪里 </p>
+<p>然后枚举矩形左边界$l$，枚举$ok[l][r]$中的每一个连续段$[u,d]$，那么矩形的上下边界在$[u,d]$中时一定是满足行的限制的，只需找出有多少个左右边界为$l,r$，上下边界在$[u,d]$内的矩形满足条件即可</p>
+<p>代码中做了注释</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> N 2520</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(T &amp;num)</span> </span>&#123;</span><br><span class="line">	T x = <span class="number">0</span>, f = <span class="number">1</span>; <span class="keyword">char</span> ch = getchar();</span><br><span class="line">	<span class="keyword">for</span> (; ch &gt; <span class="string">'9'</span> || ch &lt; <span class="string">'0'</span>; ch = getchar()) <span class="keyword">if</span> (ch == <span class="string">'-'</span>) f = <span class="number">-1</span>;</span><br><span class="line">	<span class="keyword">for</span> (; ch &lt;= <span class="string">'9'</span> &amp;&amp; ch &gt;= <span class="string">'0'</span>; ch = getchar()) x = (x &lt;&lt; <span class="number">3</span>) + (x &lt;&lt; <span class="number">1</span>) + (ch ^ <span class="string">'0'</span>);</span><br><span class="line">	num = x * f;	 </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m, a[N][N], stk[N], cnt, top, ans; </span><br><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ok[N][N]; <span class="comment">//ok[l][r]: a[l][i]~a[r][i]为合法段的i的集合 </span></span><br><span class="line">pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt; tmp[N]; <span class="comment">//临时存答案 </span></span><br><span class="line"><span class="keyword">int</span> lok[N][N], rok[N][N]; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> *num, <span class="keyword">int</span> len)</span> </span>&#123; <span class="comment">//找出所有合法段 </span></span><br><span class="line">	cnt = top = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; i++) &#123;</span><br><span class="line">		<span class="keyword">while</span> (top &amp;&amp; num[i] &gt; num[stk[top]]) &#123;</span><br><span class="line">			<span class="keyword">if</span> (i &gt; stk[top] + <span class="number">1</span>) tmp[++cnt] = make_pair(stk[top]+<span class="number">1</span>, i<span class="number">-1</span>); </span><br><span class="line">			<span class="comment">//num[l] &lt; num[r]</span></span><br><span class="line">			top--;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span> (top) &#123;</span><br><span class="line">			<span class="keyword">if</span> (i &gt; stk[top] + <span class="number">1</span>) tmp[++cnt] = make_pair(stk[top]+<span class="number">1</span>, i<span class="number">-1</span>);</span><br><span class="line">			<span class="comment">//num[l]&gt;num[r]</span></span><br><span class="line">			<span class="keyword">if</span> (num[i] == num[stk[top]]) top--;</span><br><span class="line">			<span class="comment">//特殊处理相等情况 </span></span><br><span class="line">		&#125;</span><br><span class="line">		stk[++top] = i; </span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> l, <span class="keyword">int</span> r, <span class="keyword">int</span> u, <span class="keyword">int</span> d)</span> </span>&#123; </span><br><span class="line">	<span class="comment">//左右边界为l,r;上下边界在[u,d]内 </span></span><br><span class="line">	<span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = u - <span class="number">1</span>; i &lt;= d + <span class="number">1</span>; i++) &#123;</span><br><span class="line">		a[<span class="number">0</span>][++len] = a[i][r];</span><br><span class="line">	&#125;</span><br><span class="line">	solve(a[<span class="number">0</span>], len); <span class="comment">//找出列的合法段 </span></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++) &#123;</span><br><span class="line">		<span class="keyword">int</span> tl = tmp[i].first + u - <span class="number">2</span>, tr = tmp[i].second + u - <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> (lok[tl][tr] &lt;= l) ans++;</span><br><span class="line">	&#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	read(n); read(m);</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) &#123;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= m; j++) &#123;</span><br><span class="line">			read(a[i][j]);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;	</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; i &lt; n; i++) &#123; <span class="comment">//预处理ok集合 </span></span><br><span class="line">		solve(a[i], m);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= cnt; j++) ok[tmp[j].first][tmp[j].second].push_back(i); </span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">2</span>; r &lt; m; r++)  &#123; <span class="comment">//枚举矩形右边界 </span></span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++) a[<span class="number">0</span>][i] = a[i][r];</span><br><span class="line">		solve(a[<span class="number">0</span>], n);</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; i++) &#123;</span><br><span class="line">			<span class="keyword">if</span> (rok[tmp[i].first][tmp[i].second] + <span class="number">1</span> &lt; r)</span><br><span class="line">				lok[tmp[i].first][tmp[i].second] = r;</span><br><span class="line">			rok[tmp[i].first][tmp[i].second] = r;</span><br><span class="line">			<span class="comment">//lok[u][d]表示只考虑列的限制，当矩形的上下边界为u,d，右边界为r时，左边界最左是哪里 </span></span><br><span class="line">		&#125; </span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> l = <span class="number">2</span>; l &lt;= r; l++) &#123; <span class="comment">//枚举矩形左边界 </span></span><br><span class="line">			<span class="keyword">if</span> (!ok[l][r].size()) <span class="keyword">continue</span>;</span><br><span class="line">			<span class="keyword">int</span> lst = ok[l][r][<span class="number">0</span>];</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; ok[l][r].size(); i++) &#123;</span><br><span class="line">				<span class="keyword">if</span> (ok[l][r][i] &gt; ok[l][r][i<span class="number">-1</span>] + <span class="number">1</span>) &#123;</span><br><span class="line">					<span class="comment">//找出ok[l][r]中的一个连续段 </span></span><br><span class="line">					calc(l, r, lst, ok[l][r][i<span class="number">-1</span>]);</span><br><span class="line">					lst = ok[l][r][i];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125; </span><br><span class="line">			calc(l, r, lst, ok[l][r][ok[l][r].size()<span class="number">-1</span>]);</span><br><span class="line">		&#125; </span><br><span class="line">	&#125; </span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"%d\n"</span>, ans);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
   
   
     
@@ -522,7 +494,7 @@
               
             
               
-                <p>本文永久链接是：<a href=http://akdream.tk/post/f1a598da.html/>http://akdream.tk/post/f1a598da.html/</a></p>
+                <p>本文永久链接是：<a href=http://akdream.tk/post/f48e3c0f.html/>http://akdream.tk/post/f48e3c0f.html/</a></p>
               
             
           </blockquote>
@@ -539,10 +511,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-04T11:32:46+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月8日</p>
+    <p>更新于：2020年11月4日</p>
   </a>
 </div>
 
@@ -550,9 +522,6 @@
       
         
           
-  
-  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>线段树</p></a></div>
-
 
         
       
@@ -564,7 +533,7 @@
       
         <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://connect.qq.com/widget/shareqq/index.html?url=http://akdream.tk/post/f1a598da.html/&title=脑洞治疗仪「SHOI2015」 - AK-dream&summary="
+          href="http://connect.qq.com/widget/shareqq/index.html?url=http://akdream.tk/post/f48e3c0f.html/&title=矩形区域[IOI2019] - AK-dream&summary="
           
           >
           
@@ -576,7 +545,7 @@
       
         <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer"
           
-          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://akdream.tk/post/f1a598da.html/&title=脑洞治疗仪「SHOI2015」 - AK-dream&summary="
+          href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://akdream.tk/post/f48e3c0f.html/&title=矩形区域[IOI2019] - AK-dream&summary="
           
           >
           
@@ -588,7 +557,7 @@
       
         <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer"
           
-          href="http://service.weibo.com/share/share.php?url=http://akdream.tk/post/f1a598da.html/&title=脑洞治疗仪「SHOI2015」 - AK-dream&summary="
+          href="http://service.weibo.com/share/share.php?url=http://akdream.tk/post/f48e3c0f.html/&title=矩形区域[IOI2019] - AK-dream&summary="
           
           >
           
@@ -618,15 +587,12 @@
   
     <div class="prev-next">
       
-        <a class='prev' href='/post/b4dba3b9.html/'>
-          <p class='title'><i class="fas fa-chevron-left" aria-hidden="true"></i>跳蚤[BZOJ4310]</p>
-          <p class='content'>【题目描述】很久很久以前，森林里住着一群跳蚤。一天，跳蚤国王得到了一个神秘的字符串，它想进行研究。首先，他会把串分成不超过$k$个子串，然后对于每个子串$S$，他会从$S$的所有子串中选择字典序...</p>
-        </a>
       
-      
-        <a class='next' href='/post/894e70d4.html/'>
-          <p class='title'>随机序列[SHOI2018]<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
-          <p class='content'>【题目描述】你的面前有$n$个数排成一行，分别为$a_1, a_2, \dots, a_n$。你打算在每相邻的两个$a_i$ 和$a_{i+1}$间都插入一个加号、减号或者乘号。那么一共有$3^...</p>
+        <a class='next' href='/post/d3259d46.html/'>
+          <p class='title'>Mr Panda and Survey[HDU6001]<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>题目链接https://acm.hdu.edu.cn/showproblem.php?pid=6001
+题解设$f(S)$表示有多少种选问卷的情况使得$S$中所有元素都不是好问题
+设$ans[S...</p>
         </a>
       
     </div>
@@ -711,6 +677,20 @@
     
 
 
+
+  <section class="widget toc-wrapper shadow desktop mobile" id="toc-div" >
+    
+  <header>
+    
+      <i class="fas fa-list fa-fw" aria-hidden="true"></i><span class='name'>本文目录</span>
+    
+  </header>
+
+
+    <div class='content'>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#题目描述"><span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#题解"><span class="toc-text">题解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码"><span class="toc-text">代码</span></a></li></ol>
+    </div>
+  </section>
 
 
   
