@@ -479,7 +479,9 @@
 <p>于是此时可以把$sum_2$的点权看作$2$的点权，则此时一种最优的操作顺序为$2,1,2,3,2,2$，在$1$发动五次战争</p>
 <p>接着再来找找规律，发现$sum_2=4$，而存在一种操作方案(即上面的$5,2,5,6$)使得相邻两次崛起的城市不相同，所以此时最多在$2$发动$sum_2-1$次战争</p>
 <p>而$1$就不存在一种相邻元素不相同的操作方案了，因为来自$2$的操作次数过多</p>
-<p>我们记$mx[u]=\max(, \max_{u,v\in E} \ sum[v]\ , ,, a[u])$，比如$mx[1]=\max(sum[2],sum[3],sum[4],a[1])=4$，$ans[x]$为最多在$x$发动多少次战争，则存在这样一个规律：</p>
+<p>我们记$mx[u]=\max(\max_{u,v\in E} sum[v]\ , a[u])$，  </p>
+<p>比如$mx[1]=\max(sum[2],sum[3],sum[4],a[1])=4$，  </p>
+<p>$ans[x]$为最多在$x$发动多少次战争，则存在这样一个规律：  </p>
 <p>若$mx[x]*2\ge sum[x]+1$，则$ans[x]=2*(sum[x]-mx[x])$<br>否则$ans[x]=sum[x]-1$</p>
 <p>然后按照上面的式子进行DP即可拿到30分的暴力分</p>
 <p>如何处理修改？</p>
@@ -527,10 +529,10 @@
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-10-08T20:16:08+08:00">
+          <div class="new-meta-item date" itemprop="dateUpdated" datetime="2020-11-12T18:11:07+08:00">
   <a class='notlink'>
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2020年10月8日</p>
+    <p>更新于：2020年11月12日</p>
   </a>
 </div>
 
