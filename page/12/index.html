@@ -5,7 +5,9 @@
   <!-- SEO相关 -->
   
     
-      <meta name="robots" content="noindex,follow">
+      
+        <meta name="robots" content="noindex,follow">
+      
     
   
   <!-- 渲染优化 -->
@@ -19,7 +21,7 @@
 
   <!-- 页面元数据 -->
   
-  <title>归档：2020/6 - AK-dream</title>
+  <title>AK-dream</title>
   
 
   
@@ -386,14 +388,14 @@
  
 <script> 
   // 处理封面 此时 jquery 还没加载 
-  if ("half" == "none") { // 移除封面 
+  if ("none" == "none") { // 移除封面 
     document.getElementsByClassName('cover-wrapper')[0].style.display = "none"; 
     document.getElementsByClassName('l_header', 'cover-wrapper')[0].classList.add("show"); 
   } else { 
-    if ("half" == "half") { // 半屏 
+    if ("none" == "half") { // 半屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'half'); 
       document.getElementsByClassName('scroll-down')[0].style.display = "none"; 
-    } else if ("half" == "full") { // 全屏 
+    } else if ("none" == "full") { // 全屏 
       document.getElementsByClassName('cover-wrapper')[0].setAttribute('id', 'full'); 
       document.getElementsByClassName('scroll-down')[0].style.display = ""; 
     } 
@@ -407,32 +409,9 @@
         
 
 <div class='l_main'>
-	
-		
+  
   <section class="post-list">
     
-      
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-          
-        
-      
-    
     
       
         
@@ -444,17 +423,18 @@
   
     
     <h2 class="article-title" >
-      <a href="/post/dc9b58a7.html/">
-        分零食[JSOI2012]
+      <a href="/post/a6fb1d1f.html/">
+        大陆争霸[SDOI2010]
       </a>
     </h2>
   
   <div class='md'>
     
       
-        题目描述题面太长有$n$个人，$m$颗糖，要求给前若干个人分糖(把所有糖分完)，如果一个人得到了$x$颗糖，那他的欢乐度就是$Ox^2+Sx+U$，一个分糖方案的总欢乐度是所有分到糖的人的欢乐度的乘积，求所有可行分糖方案的总欢乐度的总和。
-题解首先有一个显然的dp方程：
-设$dp[i][j]$表示给前$i$个人分了$j$颗糖，设$f(x)=Ox^2+Sx+U$，则$dp[i][j]=\sum...
+        
+只要你有无限个自爆机器人，你就能为所欲为      斯普林·布拉泽
+
+【题目描述】略一句话题意：杰森国有$N$个城市，由$M$条单向道 路连接。杰森国的首都是城市$N$。你只需摧毁杰森国首都就能获胜。为了尽量减小己方的消耗，你决定使用自爆机器人完成这一任务。唯一的困难是，杰森国的一部分城市有结界保护，不破坏掉结界就无法进入城市。而每个城市的结界都是由分布在其他城市中的一些结界发生器维持的，...
       
     
   </div>
@@ -462,12 +442,12 @@
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-06-23</time>
+        <time>2019-08-08</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/post/dc9b58a7.html/'>
+          <a class='readmore' href='/post/a6fb1d1f.html/'>
             阅读全文
           </a>
         </div>
@@ -489,18 +469,19 @@
   
     
     <h2 class="article-title" >
-      <a href="/post/93e29827.html/">
-        Problem b[HAOI2011]
+      <a href="/post/fdd8486f.html/">
+        逛公园「NOIP2017」
       </a>
     </h2>
   
   <div class='md'>
     
       
-        题目描述对于给出的$n$个询问，每次求有多少个数对$(x,y)$，满足$a \le x \le b$，$c \le y \le d$，且$\gcd(x,y) = k$，$\gcd(x,y)$函数为$x$和$y$的最大公约数。
-题解莫比乌斯反演
-我们可以用二维前缀和的思想，我们设
-$f(n,m)=\sum\limits_{i=1}^n \sum\limits_{j=1}^m [\gcd(i,j...
+        大家好我叫蒟蒻，这是我的第一篇信竞题解blog
+
+【题目描述】策策同学特别喜欢逛公园。 公园可以看成一张$N$个点$M$条边构成的有向图，且没有自环和重边。其中$1$号点是公园的入口，$N$号点是公园的出口，每条边有一个非负权值，代表策策经过这条边所要花的时间。
+策策每天都会去逛公园，他总是从$1$号点进去，从$N$号点出来。
+策策喜欢新鲜的事物，他不希望有两天逛公园的路线完全一样，同时策策...
       
     
   </div>
@@ -508,327 +489,12 @@ $f(n,m)=\sum\limits_{i=1}^n \sum\limits_{j=1}^m [\gcd(i,j...
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time>2020-06-23</time>
+        <time>2019-08-06</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/post/93e29827.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/da9385f9.html/">
-        树[省选联考2020]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述给定一棵$n$个结点的有根树$T$，结点从$1$开始编号，根结点为$1$号结点，每个结点有一个正整数权值$v_i$。
-设$x$号结点的子树内（包含$x$自身）的所有结点编号为$c_1,c_2,\dots,c_k$，定义$x$的价值为：
-$val(x)=(v_{c_1}+d(c_1,x)) \oplus (v_{c_2}+d(c_2,x)) \oplus \cdots \oplus (...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-23</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/da9385f9.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/fda2729a.html/">
-        移动金币「SDOI2019」
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述一个$1\times n$的棋盘上最初摆放有$m$枚金币。其中每一枚金币占据了一个独立的格子，任意一个格子内最多只有一枚金币。
-Alice 和 Bob 将要进行如下的一场游戏。二人轮流操作，且 Alice 先行。当轮到一个玩家的时候，他可以选择一枚金币，并将其向左移动任意多格，且至少移动一格。金币不能被移出棋盘，也不能越过其它金币。
-如果轮到一个玩家的时候他已经无法做出任何有效操作了...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-14</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/fda2729a.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/46575262.html/">
-        世界树[HNOI2014]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述题目背景太长不放 传送门
-给你一棵$n$个节点的树，有$q$次询问，每次指定$m_i$个节点为关键节点；对于任意一个节点，它被距离自己树上距离最近的那个关键节点管辖；输出每个关键节点各管辖多少个节点
-$n,, q \le 300000$，$\sum m_i\le 300000$
-题解看到$\sum m_i\le 300000$想到什么了？虚树！
-所以我们把关键节点的虚树建出来，然后考...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-12</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/46575262.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/6e1ec315.html/">
-        优秀的拆分「NOI2016」
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述如果一个字符串可以被拆分为$\text{AABB}$的形式，其中$\text{A}$和$\text{B}$是任意非空字符串，则我们称该字符串的这种拆分是优秀的。例如，对于字符串$\texttt{aabaabaa}$，如果令$\text{A}=\texttt{aab}$，$\text{B}=\texttt{a}$，我们就找到了这个字符串拆分成$\text{AABB}$的一种方式。
-一个...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-10</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/6e1ec315.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/7517fd9b.html/">
-        整数「NOI2017」
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述在人类智慧的山巅，有着一台字长为$1048576$位的超级计算机，著名理论计算机科学家 P 博士正用它进行各种研究。 不幸的是，这天台风切断了电力系统，超级计算机无法工作，而 P 博士明天就要交实验结果了，只好求助于学过 OI 的你……
-P 博士将他的计算任务抽象为对一个整数的操作。
-具体来说，有一个整数$x$，一开始为$0$。
-接下来有$n$个操作，每个操作都是以下两种类型中的一种...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-08</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/7517fd9b.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/805d1a49.html/">
-        串珠子[BZOJ2560]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述铭铭有$n$个十分漂亮的珠子和若干根颜色不同的绳子。现在铭铭想用绳子把所有的珠子连成一个整体。
-现在已知所有的珠子互不相同，用整数$1$到$n$编号。对于第$i$个珠子和第$j$个珠子，可以选择不用绳子连接，或者在$c_{i,j}$根不同颜色的绳子中选择一根将它们连接。如果把珠子看作点，把绳子看作边，将所有珠子连成一个整体即为所有点构成一个连通图。特别地，珠子不能和自己连接。
-铭铭希...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-06</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/805d1a49.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/c3f51beb.html/">
-        切糕「HNOI2013」
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述经过千辛万苦小 A 得到了一块切糕，切糕的形状是长方体，小 A 打算拦腰将切糕切成两半分给小 B 。出于美观考虑，小 A 希望切面能尽量光滑且和谐。于是她找到你，希望你能帮她找出最好的切割方案。出于简便考虑，我们将切糕视作一个长$P$、宽$Q$、高$R$的长方体点阵。我们将位于第$z$层中第$x$行、第$y$列上$(1 \le x \le P, 1 \le y \le Q, 1 \l...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-06-05</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/c3f51beb.html/'>
+          <a class='readmore' href='/post/fdd8486f.html/'>
             阅读全文
           </a>
         </div>
@@ -845,10 +511,24 @@ P 博士将他的计算任务抽象为对一个整数的操作。
   </section>
   
     
+      <br>
+      <div class="prev-next">
+        
+          <a class="prev" rel="prev" href="/page/11/">
+            <section class="post prev white-box shadow" >
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>&nbsp;上一页&nbsp;
+            </section>
+          </a>
+        
+        <p class="current">
+          12 / 12
+        </p>
+        
+      </div>
+    
   
 
 
-	
 </div>
 <aside class='l_side'>
   
@@ -957,6 +637,7 @@ P 博士将他的计算任务抽象为对一个整数的操作。
 
 
 </aside>
+
 
 
       </div>
