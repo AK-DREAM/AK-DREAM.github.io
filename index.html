@@ -657,9 +657,203 @@
         
           
         
+          
+        
+          
+        
+          
+        
+          
+        
       
     
     
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/post/b441f3b6.html/">
+        战略游戏[SDOI2018]
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        https://www.luogu.com.cn/problem/P4606
+题解每次是试图摧毁一个城市和它连着的所有边，发现如果摧毁的不是一个割点那么就不会有任何影响，所以先建出原图的圆方树
+每次选择了若干个关键节点，建出这些关键节点在圆方树上的虚树，有一个显而易见的结论：
+答案即为虚树上(包括在虚树的某条边上)所有非关键节点的圆点个数
+虚树上所有的叶子节点都一定是关键节点
+断掉一个非关键...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-01-04</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/post/b441f3b6.html/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/post/6d3463b1.html/">
+        最佳团体[JSOI2016]
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        https://www.luogu.com.cn/problem/P4322
+题解网上怎么这么多O(n^3\log n)假做法啊。。。一条链就卡掉了
+假设0号节点是根 建出表示依赖关系的图 发现正好有n条边且每个点的父亲都比它编号小所以正好是一棵树
+那么原问题就是要在树上取一个包含根的性价比最高的连通块
+看到”性价比”考虑使用01分数规划 假设x_i\in \{0,1\}表示第i个人选不选 ...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-01-04</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/post/6d3463b1.html/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/post/9fcbf1e0.html/">
+        按位或[HAOI2015]
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        题目描述刚开始你有一个数字0，每一秒钟你会随机选择一个[0,2^n-1]的数字，与你手上的数字进行或（C++, C 的 |， Pascal 的 or）操作。选择数字i 的概率是p[i]（保证0\le p[i]\le 1,\ \sum p[i]=1） 问期望多少秒后，你手上的数字变成2^n-1。
+题解min-max容斥：
+\max(S)=\sum\limits_{T \subset S \ca...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-01-04</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/post/9fcbf1e0.html/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
+      
+        
+          <div class='post-wrapper'>
+            <div class="post post-v3 white-box reveal shadow">
+  
+  
+  
+  
+    
+    <h2 class="article-title" >
+      <a href="/post/61f3b981.html/">
+        无归岛[HNOI2009]
+      </a>
+    </h2>
+  
+  <div class='md'>
+    
+      
+        题目描述https://www.luogu.com.cn/problem/P4410
+题解原图显然是一个仙人掌(似乎还有些别的性质 但是其实没什么必要)
+先考虑树的情况，题意即为不能同时选择相邻的两点，设f[x][0/1]表示选/不选x时，x子树内的最大战斗力
+f[x][0]=\max\limits_{y\in son(x)} (\max(f[y][0],f[y][1]))f[x][1]=\...
+      
+    
+  </div>
+  
+    <div class='meta-v3' line_style='solid'>
+      <div>
+        
+        <time>2021-01-04</time>
+        
+      </div>
+      
+        <div>
+          <a class='readmore' href='/post/61f3b981.html/'>
+            阅读全文
+          </a>
+        </div>
+      
+    </div>
+  
+
+</div>
+
+          </div>
+        
       
         
           <div class='post-wrapper'>
@@ -943,194 +1137,6 @@
           </div>
         
       
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/500a1398.html/">
-        快餐店[NOI2013]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述小 T 打算在城市 C 开设一家外送快餐店。送餐到某一个地点的时间与外卖店到该地点之间最短路径长度是成正比的，小 T 希望快餐店的地址选在离最远的顾客距离最近的地方。
-快餐店的顾客分布在城市 C 的N个建筑中，这N个建筑通过恰好N条双向道路连接起来，不存在任何两条道路连接了相同的两个建筑。任意两个建筑之间至少存在一条由双向道路连接而成的路径。小 T 的快餐店可以开设在任一建筑中，也可...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-28</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/500a1398.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/8edb7c14.html/">
-        贪吃蛇[CSP2020]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题面https://www.luogu.com.cn/problem/P7078
-题解考场上开T4的时候只有40~50分钟了 努力思索了10分钟想到一个结论(中途想假了一次) 
-然后发现部分分还挺多：70分
-70分简单说说70分做法：先假设游戏一直进行，那么就可以用set把每轮游戏是谁吃谁处理出来
-显然游戏共有n-1轮，从最后一轮开始向前扫，假设当前到第i轮，是A吃掉B，记t为第i\sim ...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-12</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/8edb7c14.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/aad8b10f.html/">
-        函数调用[CSP2020]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题目描述https://www.luogu.com.cn/problem/P7077
-题解第一眼看像是数据结构题？
-后来发现这题压根不用数据结构
-考虑对于给出的操作建一个图：对于所有操作3，按顺序向它调用的函数连边，这样会得到一个DAG
-对于乘法操作，在最后给所有数组元素乘上就好了，关键在于每个加法操作最后乘了一个多大的系数
-假设整个数组只有一个元素，对它依次执行：+1, *3, +2, *...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-09</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/aad8b10f.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow">
-  
-  
-  
-  
-    
-    <h2 class="article-title" >
-      <a href="/post/ad950814.html/">
-        动物园[CSP2020]
-      </a>
-    </h2>
-  
-  <div class='md'>
-    
-      
-        题面https://www.luogu.com.cn/problem/P7076
-题解这应该是最签到的一题了吧
-饲料共有$c$种，1e8存不下，先对饲料编号进行重新标号
-注意这里并不需要进行离散化(排序去重)，由于$q_i$互不相同，所以只需要把第$i$种饲料的编号看作$i$即可 (什么叫签到题啊)
-首先对于已有的动物，先处理出$K$位中哪些位有动物是1
-然后扫一遍所有要求找出哪些饲料必买
-...
-      
-    
-  </div>
-  
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time>2020-11-09</time>
-        
-      </div>
-      
-        <div>
-          <a class='readmore' href='/post/ad950814.html/'>
-            阅读全文
-          </a>
-        </div>
-      
-    </div>
-  
-
-</div>
-
-          </div>
-        
-      
     
   </section>
   
@@ -1139,7 +1145,7 @@
       <div class="prev-next">
         
         <p class="current">
-          1 / 12
+          1 / 13
         </p>
         
           <a class="next" rel="next" href="/page/2/">
@@ -1250,7 +1256,7 @@
 
 
     <div class='content'>
-      <a href="/tags/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/" style="font-size: 15.11px; color: #919191">01分数规划</a> <a href="/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 17.33px; color: #828282">AC自动机</a> <a href="/tags/FFT/" style="font-size: 16.22px; color: #8a8a8a">FFT</a> <a href="/tags/KMP/" style="font-size: 15.11px; color: #919191">KMP</a> <a href="/tags/Link-cut-Tree/" style="font-size: 19.56px; color: #737373">Link-cut Tree</a> <a href="/tags/Trie%E6%A0%91/" style="font-size: 16.22px; color: #8a8a8a">Trie树</a> <a href="/tags/cdq%E5%88%86%E6%B2%BB/" style="font-size: 14px; color: #999">cdq分治</a> <a href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 17.33px; color: #828282">二分答案</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 24px; color: #555">动态规划</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 14px; color: #999">博弈论</a> <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" style="font-size: 20.67px; color: #6c6c6c">后缀数组</a> <a href="/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 15.11px; color: #919191">后缀自动机</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C/" style="font-size: 15.11px; color: #919191">字符串哈希</a> <a href="/tags/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" style="font-size: 14px; color: #999">差分约束</a> <a href="/tags/%E5%B9%B3%E8%A1%A1%E6%A0%91/" style="font-size: 14px; color: #999">平衡树</a> <a href="/tags/%E5%BC%BA-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 15.11px; color: #919191">强/双连通分量</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 16.22px; color: #8a8a8a">拓扑排序</a> <a href="/tags/%E6%95%B0%E4%BD%8DDP/" style="font-size: 17.33px; color: #828282">数位DP</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.22px; color: #8a8a8a">数论</a> <a href="/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/" style="font-size: 16.22px; color: #8a8a8a">斜率优化</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 14px; color: #999">最小生成树</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 21.78px; color: #646464">最短路</a> <a href="/tags/%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/" style="font-size: 14px; color: #999">树上启发式合并</a> <a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 19.56px; color: #737373">树形DP</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 16.22px; color: #8a8a8a">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87DP/" style="font-size: 14px; color: #999">概率DP</a> <a href="/tags/%E7%82%B9-%E8%BE%B9%E5%88%86%E6%B2%BB/" style="font-size: 16.22px; color: #8a8a8a">点/边分治</a> <a href="/tags/%E7%8A%B6%E5%8E%8BDP/" style="font-size: 17.33px; color: #828282">状压DP</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 22.89px; color: #5d5d5d">线段树</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/" style="font-size: 16.22px; color: #8a8a8a">线段树合并</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 15.11px; color: #919191">网络流</a> <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0/" style="font-size: 16.22px; color: #8a8a8a">莫比乌斯函数</a> <a href="/tags/%E8%8E%AB%E9%98%9F/" style="font-size: 18.44px; color: #7b7b7b">莫队</a> <a href="/tags/%E8%99%9A%E6%A0%91/" style="font-size: 15.11px; color: #919191">虚树</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 14px; color: #999">计算几何</a>
+      <a href="/tags/01%E5%88%86%E6%95%B0%E8%A7%84%E5%88%92/" style="font-size: 16.22px; color: #8a8a8a">01分数规划</a> <a href="/tags/AC%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 17.33px; color: #828282">AC自动机</a> <a href="/tags/FFT/" style="font-size: 16.22px; color: #8a8a8a">FFT</a> <a href="/tags/FWT/" style="font-size: 14px; color: #999">FWT</a> <a href="/tags/KMP/" style="font-size: 15.11px; color: #919191">KMP</a> <a href="/tags/Link-cut-Tree/" style="font-size: 19.56px; color: #737373">Link-cut Tree</a> <a href="/tags/Trie%E6%A0%91/" style="font-size: 16.22px; color: #8a8a8a">Trie树</a> <a href="/tags/cdq%E5%88%86%E6%B2%BB/" style="font-size: 14px; color: #999">cdq分治</a> <a href="/tags/%E4%BA%8C%E5%88%86%E7%AD%94%E6%A1%88/" style="font-size: 17.33px; color: #828282">二分答案</a> <a href="/tags/%E4%BB%99%E4%BA%BA%E6%8E%8C/" style="font-size: 14px; color: #999">仙人掌</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 24px; color: #555">动态规划</a> <a href="/tags/%E5%8D%9A%E5%BC%88%E8%AE%BA/" style="font-size: 14px; color: #999">博弈论</a> <a href="/tags/%E5%90%8E%E7%BC%80%E6%95%B0%E7%BB%84/" style="font-size: 20.67px; color: #6c6c6c">后缀数组</a> <a href="/tags/%E5%90%8E%E7%BC%80%E8%87%AA%E5%8A%A8%E6%9C%BA/" style="font-size: 15.11px; color: #919191">后缀自动机</a> <a href="/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%93%88%E5%B8%8C/" style="font-size: 15.11px; color: #919191">字符串哈希</a> <a href="/tags/%E5%B7%AE%E5%88%86%E7%BA%A6%E6%9D%9F/" style="font-size: 14px; color: #999">差分约束</a> <a href="/tags/%E5%B9%B3%E8%A1%A1%E6%A0%91/" style="font-size: 14px; color: #999">平衡树</a> <a href="/tags/%E5%BC%BA-%E5%8F%8C%E8%BF%9E%E9%80%9A%E5%88%86%E9%87%8F/" style="font-size: 16.22px; color: #8a8a8a">强/双连通分量</a> <a href="/tags/%E6%8B%93%E6%89%91%E6%8E%92%E5%BA%8F/" style="font-size: 16.22px; color: #8a8a8a">拓扑排序</a> <a href="/tags/%E6%95%B0%E4%BD%8DDP/" style="font-size: 17.33px; color: #828282">数位DP</a> <a href="/tags/%E6%95%B0%E8%AE%BA/" style="font-size: 16.22px; color: #8a8a8a">数论</a> <a href="/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/" style="font-size: 16.22px; color: #8a8a8a">斜率优化</a> <a href="/tags/%E6%9C%80%E5%B0%8F%E7%94%9F%E6%88%90%E6%A0%91/" style="font-size: 14px; color: #999">最小生成树</a> <a href="/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/" style="font-size: 21.78px; color: #646464">最短路</a> <a href="/tags/%E6%A0%91%E4%B8%8A%E5%90%AF%E5%8F%91%E5%BC%8F%E5%90%88%E5%B9%B6/" style="font-size: 14px; color: #999">树上启发式合并</a> <a href="/tags/%E6%A0%91%E5%BD%A2DP/" style="font-size: 19.56px; color: #737373">树形DP</a> <a href="/tags/%E6%A0%91%E9%93%BE%E5%89%96%E5%88%86/" style="font-size: 16.22px; color: #8a8a8a">树链剖分</a> <a href="/tags/%E6%A6%82%E7%8E%87DP/" style="font-size: 14px; color: #999">概率DP</a> <a href="/tags/%E7%82%B9-%E8%BE%B9%E5%88%86%E6%B2%BB/" style="font-size: 16.22px; color: #8a8a8a">点/边分治</a> <a href="/tags/%E7%8A%B6%E5%8E%8BDP/" style="font-size: 17.33px; color: #828282">状压DP</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91/" style="font-size: 22.89px; color: #5d5d5d">线段树</a> <a href="/tags/%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%90%88%E5%B9%B6/" style="font-size: 16.22px; color: #8a8a8a">线段树合并</a> <a href="/tags/%E7%BD%91%E7%BB%9C%E6%B5%81/" style="font-size: 15.11px; color: #919191">网络流</a> <a href="/tags/%E8%8E%AB%E6%AF%94%E4%B9%8C%E6%96%AF%E5%87%BD%E6%95%B0/" style="font-size: 16.22px; color: #8a8a8a">莫比乌斯函数</a> <a href="/tags/%E8%8E%AB%E9%98%9F/" style="font-size: 18.44px; color: #7b7b7b">莫队</a> <a href="/tags/%E8%99%9A%E6%A0%91/" style="font-size: 16.22px; color: #8a8a8a">虚树</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/" style="font-size: 14px; color: #999">计算几何</a>
     </div>
   </section>
 
