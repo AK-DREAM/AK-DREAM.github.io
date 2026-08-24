@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ke Li's personal homepage — computer science student.">
+    <meta property="og:title" content="Ke Li | Personal Homepage">
+    <meta property="og:description" content="Personal homepage of Ke Li, a computer science student.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ak-dream.github.io/">
+    <title>Ke Li | Personal Homepage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#about" class="skip-link">Skip to main content</a>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="#about" class="nav-logo" aria-label="Back to top">
+                <span class="logo-bracket">[</span>
+                <span class="logo-text" data-config="initials">KL</span>
+                <span class="logo-bracket">]</span>
+            </a>
+            <div class="nav-links">
+                <a href="#about">About Me</a>
+                <a href="#publications" hidden>Publications</a>
+                <a href="#projects" hidden>Projects</a>
+                <a href="#news" hidden>News</a>
+                <a href="#experience" hidden>Experience</a>
+                <a href="#contact" hidden>Contact</a>
+            </div>
+            <div class="nav-controls">
+                <button type="button" class="nav-btn theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <svg class="nav-btn-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+                    </svg>
+                    <svg class="nav-btn-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                    <span class="nav-btn-label theme-label">Light</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero / About Section -->
+    <section id="about" class="hero">
+        <div class="hero-bg">
+            <div class="grid-overlay"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name" data-config="name">Ke Li</h1>
+                <p class="hero-title" data-config="role_university">Computer Science Student</p>
+                <p class="hero-description" data-config="bio">
+                    I am a computer science student. This website will collect my projects,
+                    experience, and notes as they grow.
+                </p>
+                <div class="hero-stats" hidden>
+                    <div class="stat">
+                        <span class="stat-number">10+</span>
+                        <span class="stat-label">Publications</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">Citations</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                </div>
+                <div class="hero-cta">
+                    <a href="#publications" class="btn btn-primary" hidden>View Publications</a>
+                    <a href="#contact" class="btn btn-secondary" hidden>Get in Touch</a>
+                </div>
+            </div>
+            <div class="hero-image" hidden>
+                <div class="image-frame">
+                    <div class="image-placeholder">
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="section" hidden>
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-icon">//</span> Publications
+            </h2>
+            <div class="publications-list" id="cfg-publications"></div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section section-alt" hidden>
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-icon">//</span> Projects
+            </h2>
+            <div class="projects-grid" id="cfg-projects"></div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="section" hidden>
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-icon">//</span> News
+            </h2>
+            <div class="news-list" id="cfg-news"></div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section section-alt" hidden>
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-icon">//</span> Experience
+            </h2>
+            <div class="experience-grid" id="cfg-experience"></div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section" hidden>
+        <div class="section-container">
+            <h2 class="section-title">
+                <span class="title-icon">//</span> Contact
+            </h2>
+            <div class="contact-content" id="cfg-contact">
+                <p class="contact-intro">You can find me online.</p>
+                <div class="contact-links"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; <span id="current-year">2026</span> <span data-config="name">Ke Li</span>.</p>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

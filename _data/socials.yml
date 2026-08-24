@@ -1,7 +1,0 @@
-# this file contains the social media links and usernames of the author
-# the socials will be displayed in the order they are defined here
-# for more information, please refer to the documentation of jekyll-socials plugin: https://github.com/george-gca/jekyll-socials
-custom_social: # can be any name here other than the ones already defined in the jekyll-socials plugin
-  logo: https://github.githubassets.com/favicons/favicon.svg # can be png, svg, jpg
-  title: GitHub
-  url: https://github.com/AK-DREAM
