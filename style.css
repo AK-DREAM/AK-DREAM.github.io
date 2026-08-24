@@ -256,11 +256,6 @@ a:hover {
     width: 100%;
 }
 
-.hero-content.no-photo {
-    grid-template-columns: minmax(0, 680px);
-    justify-content: center;
-}
-
 .hero-greeting {
     display: none;
 }

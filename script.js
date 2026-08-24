@@ -59,17 +59,13 @@ function populateSimpleFields(cfg) {
 
   if (cfg.name) document.title = `${cfg.name} | Personal Homepage`;
 
-  const heroContent = document.querySelector(".hero-content");
   const heroImage = document.querySelector(".hero-image");
+  if (heroImage) heroImage.hidden = false;
   if (cfg.photo) {
-    if (heroImage) heroImage.hidden = false;
     const avatar = document.querySelector(".image-placeholder, .hero-photo");
     if (avatar) {
       avatar.innerHTML = `<img src="${cfg.photo}" alt="${cfg.name}" style="width:100%;height:100%;object-fit:cover;border-radius:inherit">`;
     }
-  } else {
-    if (heroImage) heroImage.hidden = true;
-    if (heroContent) heroContent.classList.add("no-photo");
   }
 
   const stats = document.querySelector(".hero-stats");
@@ -116,6 +112,7 @@ function populateLists(cfg) {
               <div class="pub-header">
                 <h3 class="pub-title">${publication.title}</h3>
                 <div class="pub-links">${Object.entries(publication.links || {})
+                  .filter(([, url]) => Boolean(url))
                   .map(([label, url]) => `<a href="${url}" class="pub-link">${label.toUpperCase()}</a>`)
                   .join("")}</div>
               </div>
@@ -136,6 +133,7 @@ function populateLists(cfg) {
             <h3 class="project-title">${project.name}</h3>
             <p class="project-desc">${project.desc}</p>
             <div class="project-tags">${(project.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join("")}</div>
+            ${project.url ? `<div class="project-links"><a class="project-link" href="${project.url}">View project</a></div>` : ""}
           </article>`,
       )
       .join("");
