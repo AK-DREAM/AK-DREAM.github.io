@@ -4,64 +4,131 @@ const USER_CONFIG = {
   // Basic information
   name: "Ke Li",
   initials: "KL",
-  role: "Computer Science Student",
-  university: "Your University",
-  email: "your.email@university.edu",
-  bio: "Exploring the frontiers of your research area, machine learning, and artificial intelligence. Building intelligent systems that advance scientific discovery.",
-  photo: "", // Example: "assets/photo.jpg". Empty shows the default avatar.
+  role: "Undergraduate Student",
+  university: "Peking University",
+  email: "akdream10086@stu.pku.edu.cn",
+  bio: "I am an undergraduate student in the Turing Class at Peking University. My research interests include multimodal AI, efficient inference, and machine learning systems.",
+  photo: "assets/photo.jpg",
 
-  // Short numbers shown below the introduction
-  stats: [
-    { value: "10+", label: "Publications" },
-    { value: "200+", label: "Citations" },
-    { value: "5+", label: "Projects" },
-  ],
+  // Short numbers shown below the introduction. Keep empty to hide this block.
+  stats: [],
 
-  // Leave any URL empty to hide that link
+  // Leave any URL empty to hide that link.
   links: {
-    scholar: "https://scholar.google.com/",
+    scholar: "",
     github: "https://github.com/AK-DREAM",
     twitter: "",
-    cv: "", // Example: "assets/cv.pdf"
+    cv: "assets/cv.pdf",
   },
 
   publications: [
     {
-      year: 2025,
-      title: "Your Paper Title Here",
-      authors: "Ke Li, Co-Author 1, Co-Author 2",
-      venue: "Conference / Journal Name 2025",
-      links: { pdf: "", code: "" },
+      year: 2026,
+      title: "When and Where to Look: Adaptive Visual Evidence Scheduling for Efficient Long Video Understanding",
+      authors: "Ke Li*, Jiayu Chen*, Maoliang Li, Zihao Zheng, Hailong Zou, Hengyi Zhang, Xuanzhe Liu, Xiang Chen",
+      venue: "In submission. arXiv preprint arXiv:2608.03918, 2026. (*Equal contribution)",
+      links: {
+        pdf: "https://arxiv.org/pdf/2608.03918",
+        code: "https://github.com/AK-DREAM/EcoFrame",
+      },
     },
     {
-      year: 2024,
-      title: "Another Paper Title",
-      authors: "Ke Li, Co-Author 1",
-      venue: "Conference / Journal Name 2024",
-      links: { pdf: "" },
+      year: 2026,
+      title: "DIRECT: Video Mashup Creation via Hierarchical Multi-Agent Planning and Intent-Guided Editing",
+      authors: "Ke Li, Maoliang Li, Jialiang Chen, Jiayu Chen, Zihao Zheng, Shaoqi Wang, Xiang Chen",
+      venue: "arXiv preprint arXiv:2604.04875, 2026",
+      links: {
+        pdf: "https://arxiv.org/pdf/2604.04875",
+        code: "https://github.com/AK-DREAM/DIRECT-Claw",
+      },
+    },
+    {
+      year: 2025,
+      title: "MIRAGE: Runtime Scheduling for Multi-Vector Image Retrieval with Hierarchical Decomposition",
+      authors: "Maoliang Li*, Ke Li*, Y. Liu, J. Chen, Zihao Zheng, Y. Wu, C. Liu, Xiang Chen",
+      venue: "Proceedings of the 63rd ACM/IEEE Design Automation Conference (DAC), 2026. (*Equal contribution)",
+      links: {
+        pdf: "https://arxiv.org/abs/2510.08976v3",
+        code: "",
+      },
     },
   ],
 
   projects: [
     {
-      name: "Project Name",
-      desc: "Brief description of your project and its impact.",
-      tags: ["Python", "PyTorch"],
-      url: "",
+      name: "DIRECT-Claw",
+      desc: "A hierarchical multi-agent framework that creates video mashups from user instructions, raw footage, and music while optimizing visual continuity and auditory alignment.",
+      tags: ["Multimodal AI", "Multi-Agent Systems", "Video Editing"],
+      url: "https://github.com/AK-DREAM/DIRECT-Claw",
     },
   ],
 
   news: [
-    { date: "2025.01", badge: "New", text: "Paper accepted at Conference 2025!" },
-    { date: "2024.09", badge: "Award", text: "Received fellowship / award." },
+    {
+      date: "2026.08",
+      badge: "Preprint",
+      text: "Released EcoFrame (When and Where to Look), our work on adaptive visual evidence scheduling for efficient long-video understanding.",
+    },
+    {
+      date: "2026.06",
+      badge: "Internship",
+      text: "Started a research internship at the Center for Computational Evolutionary Intelligence, Duke University.",
+    },
+    {
+      date: "2026.04",
+      badge: "Preprint",
+      text: "Released DIRECT, a hierarchical multi-agent framework for intent-guided video mashup creation.",
+    },
+    {
+      date: "2026.02",
+      badge: "Paper",
+      text: "MIRAGE was accepted to the 63rd ACM/IEEE Design Automation Conference (DAC 2026)!",
+    },
+    {
+      date: "2025.09",
+      badge: "Award",
+      text: "Received the John Hopcroft Scholarship for the 2024-2025 academic year at Peking University.",
+    },
+    {
+      date: "Summer 2025",
+      badge: "Internship",
+      text: "Started a research internship at Penglai Lab at Tencent.",
+    },
+    {
+      date: "2025.03",
+      badge: "Research",
+      text: "Joined the Intelligence Fusion Lab at Peking University as a research intern.",
+    },
   ],
 
   education: [
-    { period: "2020–Present", degree: "Ph.D. in Computer Science", institution: "Your University" },
-    { period: "2016–2020", degree: "B.S. in Computer Science", institution: "Your University" },
+    {
+      period: "Sept. 2024 - Present",
+      degree: "B.S. in Computer Science and Technology (Turing Class)",
+      institution: "Peking University",
+    },
+    {
+      period: "Sept. 2021 - July 2024",
+      degree: "Senior High School",
+      institution: "Shenzhen Middle School",
+    },
   ],
 
   experience: [
-    { period: "Summer 2024", role: "Research Intern", institution: "Research Lab / Company" },
+    {
+      period: "Summer 2026",
+      role: "Research Intern",
+      institution: "Center for Computational Evolutionary Intelligence, Duke University",
+    },
+    {
+      period: "Summer 2025",
+      role: "Research Intern",
+      institution: "Penglai Lab, Tencent",
+    },
+    {
+      period: "Mar. 2025 - Present",
+      role: "Research Intern",
+      institution: "Intelligence Fusion Lab, Peking University",
+    },
   ],
 };
