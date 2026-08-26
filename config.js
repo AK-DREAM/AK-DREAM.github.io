@@ -7,7 +7,7 @@ const USER_CONFIG = {
   role: "Undergraduate Student",
   university: "Peking University",
   email: "akdream10086@stu.pku.edu.cn",
-  bio: "I am an undergraduate student in the Turing Class at Peking University. My research interests include multimodal AI, efficient inference, and machine learning systems.",
+  bio: "I am a third-year undergraduate student in the Turing Class at Peking University. My research interests include multimodal AI, efficient inference, and machine learning systems.",
   photo: "assets/photo.jpg",
 
   // Short numbers shown below the introduction. Keep empty to hide this block.
@@ -99,18 +99,23 @@ const USER_CONFIG = {
       badge: "Research",
       text: "Joined the Intelligence Fusion Lab at Peking University as a research intern.",
     },
+    {
+      date: "2023.07",
+      badge: "Award",
+      text: "Won a gold medal in the 2023 National Olympiad in Informatics (NOI) and was admitted to the Turing Class at Peking University.",
+    },
   ],
 
   education: [
     {
-      period: "Sept. 2024 - Present",
+      period: "2024.09 - Present",
       degree: "B.S. in Computer Science and Technology (Turing Class)",
-      institution: "Peking University",
+      institution: "Peking University, Beijing, China",
     },
     {
-      period: "Sept. 2021 - July 2024",
+      period: "2021.09 - 2024.07",
       degree: "Senior High School",
-      institution: "Shenzhen Middle School",
+      institution: "Shenzhen Middle School, Shenzhen, China",
     },
   ],
 
@@ -126,7 +131,7 @@ const USER_CONFIG = {
       institution: "Penglai Lab, Tencent",
     },
     {
-      period: "Mar. 2025 - Present",
+      period: "2025.03 - Present",
       role: "Research Intern",
       institution: "Intelligence Fusion Lab, Peking University",
     },
