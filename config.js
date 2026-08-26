@@ -3,7 +3,7 @@
 const USER_CONFIG = {
   // Basic information
   name: "Ke Li",
-  initials: "KL",
+  initials: "AK-DREAM",
   role: "Undergraduate Student",
   university: "Peking University",
   email: "akdream10086@stu.pku.edu.cn",
@@ -45,7 +45,7 @@ const USER_CONFIG = {
     {
       year: 2025,
       title: "MIRAGE: Runtime Scheduling for Multi-Vector Image Retrieval with Hierarchical Decomposition",
-      authors: "Maoliang Li*, Ke Li*, Y. Liu, J. Chen, Zihao Zheng, Y. Wu, C. Liu, Xiang Chen",
+      authors: "Maoliang Li*, Ke Li*, Yaoyang Liu, Jiayu Chen, Zihao Zheng, Yinjun Wu, Chenchen Liu, Xiang Chen",
       venue: "Proceedings of the 63rd ACM/IEEE Design Automation Conference (DAC), 2026. (*Equal contribution)",
       links: {
         pdf: "https://arxiv.org/abs/2510.08976v3",
@@ -90,7 +90,7 @@ const USER_CONFIG = {
       text: "Received the John Hopcroft Scholarship for the 2024-2025 academic year at Peking University.",
     },
     {
-      date: "Summer 2025",
+      date: "2025.6",
       badge: "Internship",
       text: "Started a research internship at Penglai Lab at Tencent.",
     },
