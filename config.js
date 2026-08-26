@@ -90,7 +90,7 @@ const USER_CONFIG = {
       text: "Received the John Hopcroft Scholarship for the 2024-2025 academic year at Peking University.",
     },
     {
-      date: "2025.6",
+      date: "2025.06",
       badge: "Internship",
       text: "Started a research internship at Penglai Lab at Tencent.",
     },
@@ -121,12 +121,12 @@ const USER_CONFIG = {
 
   experience: [
     {
-      period: "Summer 2026",
+      period: "2026.06 - 2026.08",
       role: "Research Intern",
       institution: "Center for Computational Evolutionary Intelligence, Duke University",
     },
     {
-      period: "Summer 2025",
+      period: "2025.06 - 2025.08",
       role: "Research Intern",
       institution: "Penglai Lab, Tencent",
     },
