@@ -7,7 +7,7 @@ const USER_CONFIG = {
   role: "Undergraduate Student",
   university: "Peking University",
   email: "akdream10086@stu.pku.edu.cn",
-  bio: "I am a third-year undergraduate student in the Turing Class at Peking University. My research interests include multimodal AI, efficient inference, and machine learning systems.",
+  bio: "I am a third-year undergraduate student in the Turing Class at School of EECS, Peking University. My research interests include multimodal AI, efficient inference, and machine learning systems.",
   photo: "assets/photo.jpg",
 
   // Short numbers shown below the introduction. Keep empty to hide this block.
