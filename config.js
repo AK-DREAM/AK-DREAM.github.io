@@ -136,7 +136,7 @@ const USER_CONFIG = {
 
   experience: [
     {
-      period: "2026.06 - 2026.08",
+      period: "2026.06 - 2026.11",
       role: "Research Intern",
       institution: "Center for Computational Evolutionary Intelligence, Duke University",
     },
