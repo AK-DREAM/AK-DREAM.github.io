@@ -29,7 +29,7 @@ const USER_CONFIG = {
       venue: "In submission. arXiv preprint arXiv:2611.15569, 2026",
       links: {
         pdf: "https://arxiv.org/pdf/2611.15569",
-        code: "https://github.com/AK-DREAM/TraceKV",
+        // code: "https://github.com/AK-DREAM/TraceKV",
       },
     },
     {
@@ -39,19 +39,19 @@ const USER_CONFIG = {
       venue: "In submission. arXiv preprint arXiv:2608.03918, 2026. (*Equal contribution)",
       links: {
         pdf: "https://arxiv.org/pdf/2608.03918",
-        code: "https://github.com/AK-DREAM/EcoFrame",
+        // code: "https://github.com/AK-DREAM/EcoFrame",
       },
     },
-    {
-      year: 2026,
-      title: "DIRECT: Video Mashup Creation via Hierarchical Multi-Agent Planning and Intent-Guided Editing",
-      authors: "Ke Li, Maoliang Li, Jialiang Chen, Jiayu Chen, Zihao Zheng, Shaoqi Wang, Xiang Chen",
-      venue: "arXiv preprint arXiv:2604.04875, 2026",
-      links: {
-        pdf: "https://arxiv.org/pdf/2604.04875",
-        code: "https://github.com/AK-DREAM/DIRECT-Claw",
-      },
-    },
+    // {
+    //   year: 2026,
+    //   title: "DIRECT: Video Mashup Creation via Hierarchical Multi-Agent Planning and Intent-Guided Editing",
+    //   authors: "Ke Li, Maoliang Li, Jialiang Chen, Jiayu Chen, Zihao Zheng, Shaoqi Wang, Xiang Chen",
+    //   venue: "arXiv preprint arXiv:2604.04875, 2026",
+    //   links: {
+    //     pdf: "https://arxiv.org/pdf/2604.04875",
+    //     code: "https://github.com/AK-DREAM/DIRECT-Claw",
+    //   },
+    // },
     {
       year: 2025,
       title: "MIRAGE: Runtime Scheduling for Multi-Vector Image Retrieval with Hierarchical Decomposition",
