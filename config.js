@@ -24,6 +24,16 @@ const USER_CONFIG = {
   publications: [
     {
       year: 2026,
+      title: "TraceKV: Policy-Preserving Low-Rank KV Cache Compression for Reasoning Vision-Language Models",
+      authors: "Ke Li, Zishan Shao, Yiran Chen",
+      venue: "In submission. arXiv preprint arXiv:2611.15569, 2026",
+      links: {
+        pdf: "https://arxiv.org/pdf/2611.15569",
+        code: "https://github.com/AK-DREAM/TraceKV",
+      },
+    },
+    {
+      year: 2026,
       title: "When and Where to Look: Adaptive Visual Evidence Scheduling for Efficient Long Video Understanding",
       authors: "Ke Li*, Jiayu Chen*, Maoliang Li, Zihao Zheng, Hailong Zou, Hengyi Zhang, Xuanzhe Liu, Xiang Chen",
       venue: "In submission. arXiv preprint arXiv:2608.03918, 2026. (*Equal contribution)",
@@ -65,6 +75,11 @@ const USER_CONFIG = {
 
   news: [
     {
+      date: "2026.11",
+      badge: "Preprint",
+      text: "Released TraceKV, our work on policy-preserving low-rank KV cache compression for reasoning vision-language models.",
+    },
+    {
       date: "2026.08",
       badge: "Preprint",
       text: "Released EcoFrame (When and Where to Look), our work on adaptive visual evidence scheduling for efficient long-video understanding.",
@@ -72,7 +87,7 @@ const USER_CONFIG = {
     {
       date: "2026.06",
       badge: "Internship",
-      text: "Started a research internship at the Center for Computational Evolutionary Intelligence, Duke University.",
+      text: "Started a research internship at the Center for Computational Evolutionary Intelligence, Duke University, supervised by Prof. Yiran Chen.",
     },
     {
       date: "2026.04",
@@ -97,7 +112,7 @@ const USER_CONFIG = {
     {
       date: "2025.03",
       badge: "Research",
-      text: "Joined the Intelligence Fusion Lab at Peking University as a research intern.",
+      text: "Joined the Intelligence Fusion Lab at Peking University as a research intern, supervised by Prof. Xiang Chen.",
     },
     {
       date: "2023.07",
