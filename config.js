@@ -2,7 +2,7 @@
 // Leave an optional link or an entire list empty to hide it from the page.
 const USER_CONFIG = {
   // Basic information
-  name: "Ke Li",
+  name: "Ke Li (李可)",
   initials: "AK-DREAM",
   role: "Undergraduate Student",
   university: "Peking University",
